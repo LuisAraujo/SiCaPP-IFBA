@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SiCaPP - IFBA</title>
+</head>
+
+<body>
+<script src="resource/scripts_js/jquery-1.11.3.min.js"></script>
+<script src="resource/scripts_js/jquery.validate.js"></script>
+<script>
+    $(document).ready(function() {
+
+        /*CADASTRO */
+        $("#form_cadastro").validate({
+
+
+            submitHandler: function(form) {
+
+                var dados = $(form).serialize();
+
+                $.ajax({
+                    type: "POST",
+                    url: "class/Controller/Dispatcher.php?classe=Pesquisador&acao=inserir",
+                    data: dados,
+                    success: function(data)
+                    {
+                        console.log(data);
+
+                    },
+                    error: function(data)
+                    {
+                       console.log("erro");
+                    }
+                });
+
+                return false;
+            }
+
+    //fim ajax
+        });
+//fim document ready
+    });
+
+</script>
+
+
+TESTE DA ARQUITETURA MVC - ver resultado no console <br>
+Enviando dados via GET (Metodo e Acao) e POST (Formulario)<br> <br>
+<form id="form_cadastro">
+
+<input type="text" id="nome" name="nome">
+<button type="submit">ENVIAR</button>
+
+<div id="retorno">
+
+</div>
+</form>
+
+
+
+</div>
+
+
+</body>
+</html>
