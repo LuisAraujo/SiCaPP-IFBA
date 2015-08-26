@@ -20,7 +20,8 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "class/Controller/Dispatcher.php?classe=Pesquisador&acao=inserirPesquisador",
+                    //url: "class/Controller/Dispatcher.php?classe=Pesquisador&acao=inserirPesquisador",
+                    url: "class/Controller/Dispatcher.php?classe=Login&acao=logar",
                     data: dados,
                     success: function(data)
                     {
@@ -48,7 +49,9 @@ TESTE DA ARQUITETURA MVC - ver resultado no console <br>
 Enviando dados via GET (Metodo e Acao) e POST (Formulario)<br> <br>
 <form id="form_cadastro">
 
-<input type="text" id="nome" name="nome">
+Senha: <input type="text" id="senha" name="senha">
+Email: <input type="text" id="email" name="email">
+
 <button type="submit">ENVIAR</button>
 
 <div id="retorno">

@@ -1,20 +1,46 @@
 <?php
 require_once("Persitente.php");
+require_once("UsuarioDAO.php");
 /**
 * Class EstudanteDAO
- * @author Luis Araujo
+* @author Luis Araujo
 * @description Classe responsável pela interação de estudante como a base de dados
 * @versio 1.0
 * @package Model/DAO
 */
-class EstudanteDAO implements Persistente{
+class EstudanteDAO  extends UsuarioDAO implements Persistente{
+
+    /**
+     * @description Guarda a referência do Estudante
+     * @type Estudante
+     */
+    private $estudante;
+
+
+    /**
+     * @description Recebe o parametro do Tipo Estudante para extrair os dados
+     * @param $estudante Estudante
+     */
+    public  function __construct($estudante){
+        $this->estudante = $estudante;
+    }
+
+
     /**
      * @description Insere elemento a partir de usuario e filhos
      * @return mixed
      */
     public function inserir()
     {
-        // TODO: Implement inserir() method.
+
+        $sql="insert into usuario (nome, cpf, lattes, email, senha, matricula, eprofessor)
+        values(".$this->estudante->getNome().",".$this->estudante->getCPF().",".$this->estudante->getEnderecoLattes().","
+        .$this->estudante->getEmail().",".$this->estudante->getSenha().",".$this->estudante->getMatricula().",false)";
+
+        $result = mysql_query($sql);
+
+        //teste
+        return $this->estudante->getNome();
     }
 
     /**
@@ -23,7 +49,14 @@ class EstudanteDAO implements Persistente{
      */
     public function atualizar()
     {
-        // TODO: Implement atualizar() method.
+        $sql="update from usuario set nome=".$this->estudante->getNome().", CPF=".$this->estudante->getCPF().",
+        lattes=".$this->estudante->getEnderecoLattes().", email=".$this->estudante->getEmail().",
+        senha".$this->estudante->getSenha().", matricula".$this->estudante->getMatricula()."
+        where idusuario = ".$this->estudante->getIdEstudantes()."";
+
+        $result = mysql_query($sql);
+
+        return "ok";
     }
 
     /**
@@ -32,17 +65,12 @@ class EstudanteDAO implements Persistente{
      */
     public function deletar()
     {
-        // TODO: Implement deletar() method.
+        $sql="delete from usuarios where idusuario = ".$this->estudante->getIdEstudantes();
+
+        return "ok";
     }
 
 
-    /**
-     * @description Busca elemento através do  $email
-     * @param $email String
-     * @return Usuario
-     */
-    public function buscar($email)
-    {
-        // TODO: Implement buscar() method.
-    }
+
+
 }

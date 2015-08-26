@@ -6,7 +6,7 @@
  * @versio
  * @package
  */
-class PesquisadorView {
+class PesquisadorView extends UsuarioView{
 
 
     public function exibeStatusInserido($param){

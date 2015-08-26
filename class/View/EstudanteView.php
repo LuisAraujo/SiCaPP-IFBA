@@ -7,6 +7,24 @@
  * @package
  */
 
-class EstudanteView {
+class EstudanteView extends UsuarioView{
+
+    public function exibeStatusInserido($param){
+
+        echo $param;
+    }
+
+    public function exibeStatusAtualizado($param){
+
+        echo $param;
+    }
+
+
+    public function exibeStatusDeletado($param){
+
+        echo $param;
+    }
+
+
 
 } 

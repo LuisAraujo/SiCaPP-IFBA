@@ -11,7 +11,7 @@ class Conexao {
     public static function Conectar(){
 
          $link = mysql_connect("localhost", "root", "root");
-         mysql_select_db("teste", $link);
+         mysql_select_db("mydb", $link);
 
     }
 

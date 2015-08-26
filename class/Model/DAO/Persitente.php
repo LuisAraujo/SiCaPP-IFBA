@@ -25,12 +25,5 @@ interface Persistente{
      */
     public function deletar();
 
-     /**
-     * @description Busca elemento através do  $email
-     * @param $email String
-     * @return Usuario
-     */
-    public function buscar($email);
-
 
 }

@@ -1,5 +1,6 @@
 <?php
 require_once("Persitente.php");
+require_once("UsuarioDAO.php");
 /**
  * Class PesquisadorDAO
  * @author Luis Araujo
@@ -7,9 +8,16 @@ require_once("Persitente.php");
  * @version 1.0
  * @package Model/DAO
  */
-class PesquisadorDAO implements Persistente{
+class PesquisadorDAO extends UsuarioDAO implements Persistente{
+
 
     /**
+     * @description Guarda a referência do Pesquisador
+     * @type Pesquisador
+     */
+    private $pesquisador;
+
+     /**
      * @description Recebe o parametro do Tipo Pesquisador para extrair os dados
      * @param $pesquisador Pesquisador
      */
@@ -19,18 +27,6 @@ class PesquisadorDAO implements Persistente{
 
     }
 
-    /**
-     * @description Guarda a referência do Pesquisador
-     * @type Pesquisador
-     */
-    private $pesquisador;
-
-   /**
-   * @description Guarda a referência do UsuarioDAO para posterior inserção, atualização e deleção
-   * elemento necessário pelo padrão de especialização do banco (Pesquisador é um Usuario)
-   * @type UsuarioDAO;
-   */
-    private $usuarioDAO;
 
     /**
      * @overloping
@@ -57,24 +53,6 @@ class PesquisadorDAO implements Persistente{
         // TODO: Implement atualizar() method.
     }
 
-    /**
-     * @description Deletar elemento através do id
-     * @return bool
-     */
-    public function deletar()
-    {
-        // TODO: Implement deletar() method.
-    }
-
-    /**
-     * @description Busca elemento através do  $email
-     * @param $email String
-     * @return Usuario
-     */
-    public function buscar($email)
-    {
-        // TODO: Implement buscar() method.
-    }
 
 
 }
