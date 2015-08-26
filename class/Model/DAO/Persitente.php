@@ -1,10 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Luis 4raujo
- * Date: 25/08/15
- * Time: 01:05
- */
+* @descrition Interface para classes DAO que acessam o Banco
+* @author Luis Araujo
+* @version Luis Araujo
+*/
 
 interface Persistente{
 
@@ -32,7 +31,6 @@ interface Persistente{
      * @return Usuario
      */
     public function buscar($email);
-
 
 
 }

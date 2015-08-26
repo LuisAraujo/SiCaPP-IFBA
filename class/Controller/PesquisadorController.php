@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Luis 4raujo
- * Date: 25/08/15
- * Time: 01:37
+ * Class
+ * @author Luis Araujo
+ * @description
+ * @version
+ * @package
  */
 
 class PesquisadorController {
@@ -32,18 +33,32 @@ class PesquisadorController {
     }
 
 
-    public function inserir(){
+    public function inserirPesquisador(){
 
         Conexao::Conectar();
 
         $novoPesquisador = new Pesquisador();
-        $novoPesquisador->setNome($_POST["nome"]);
+
+        $novoPesquisador->setNome( isset($_POST["nome"])?$_POST["nome"]:"" );
+        $novoPesquisador->setCPF(  isset($_POST["CPF"])?$_POST["CPF"]:"" );
+        $novoPesquisador->setEnderecoLattes( isset($_POST["lattes"])?$_POST["lattes"]:"" );
+        $novoPesquisador->setEmail( isset($_POST["email"])?$_POST["email"]:"" );
+        $novoPesquisador->setSenha( isset($_POST["senha"])?$_POST["senha"]:"" );
+        $novoPesquisador->setSIAPE( isset($_POST["SIAPE"])?$_POST["SIAPE"]:"" );
 
         $pesquisadorDao = new PesquisadorDAO($novoPesquisador);
 
         $retornoDAO = $pesquisadorDao->inserir();
 
         $this->objPesquisadorView->exibeStatusInserido( $retornoDAO );
+
+    }
+
+    public function alterarPesquisador(){
+
+    }
+
+    public function deletePesquisador(){
 
     }
 

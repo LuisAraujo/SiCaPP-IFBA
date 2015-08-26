@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Luis 4raujo
- * Date: 25/08/15
- * Time: 02:48
+ * Class
+ * @author Luis Araujo
+ * @description
+ * @versio
+ * @package
  */
 
 require_once("../Model/Bean/Usuario.php");

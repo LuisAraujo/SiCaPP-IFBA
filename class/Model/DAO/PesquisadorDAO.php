@@ -1,15 +1,13 @@
 <?php
-
-require_once("../Model/DAO/UsuarioDAO.php");
-
+require_once("Persitente.php");
 /**
  * Class PesquisadorDAO
  * @author Luis Araujo
  * @description Classe responsável pela interação de Pesquisador como a base de dados
- * @versio 1.0
+ * @version 1.0
  * @package Model/DAO
  */
-class PesquisadorDAO extends UsuarioDAO{
+class PesquisadorDAO implements Persistente{
 
     /**
      * @description Recebe o parametro do Tipo Pesquisador para extrair os dados
@@ -19,9 +17,6 @@ class PesquisadorDAO extends UsuarioDAO{
 
         $this->pesquisador = $pesquisador;
 
-        //instancia um usuarioDAO e passa a própria referência como parâmetro
-        //usando polimorfismo (Pesquisador é um Usuario)
-        $this->usuarioDAO = new UsuarioDAO($this);
     }
 
     /**
@@ -38,6 +33,7 @@ class PesquisadorDAO extends UsuarioDAO{
     private $usuarioDAO;
 
     /**
+     * @overloping
      * @description Insere elemento a partir de usuario e filhos
      * @return mixed
      */
@@ -69,5 +65,16 @@ class PesquisadorDAO extends UsuarioDAO{
     {
         // TODO: Implement deletar() method.
     }
+
+    /**
+     * @description Busca elemento através do  $email
+     * @param $email String
+     * @return Usuario
+     */
+    public function buscar($email)
+    {
+        // TODO: Implement buscar() method.
+    }
+
 
 }

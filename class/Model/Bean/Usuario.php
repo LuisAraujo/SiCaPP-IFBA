@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Luis 4raujo
- * Date: 25/08/15
- * Time: 00:39
+ * Class
+ * @author Luis Araujo
+ * @description
+ * @versio
+ * @package
  */
 
 abstract class Usuario {
@@ -19,8 +20,7 @@ abstract class Usuario {
 
     }
 
-
-    private $idUsuario;
+   // private $idUsuario;
     private $nome;
     private $CPF;
     private $enderecoLattes;
@@ -76,23 +76,7 @@ abstract class Usuario {
     }
 
     /**
-     * @param int  $idUsuario
-     */
-    public function setIdUsuario($idUsuario)
-    {
-        $this->idUsuario = $idUsuario;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdUsuario()
-    {
-        return $this->idUsuario;
-    }
-
-    /**
-     * @param mixed $nome
+     * @param string $nome
      */
     public function setNome($nome)
     {
@@ -100,7 +84,7 @@ abstract class Usuario {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getNome()
     {
@@ -108,7 +92,7 @@ abstract class Usuario {
     }
 
     /**
-     * @param mixed $senha
+     * @param string $senha
      */
     public function setSenha($senha)
     {

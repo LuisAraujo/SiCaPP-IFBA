@@ -20,16 +20,16 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "class/Controller/Dispatcher.php?classe=Pesquisador&acao=inserir",
+                    url: "class/Controller/Dispatcher.php?classe=Pesquisador&acao=inserirPesquisador",
                     data: dados,
                     success: function(data)
                     {
-                        console.log(data);
+                        $("#retorno").html(data);
 
                     },
                     error: function(data)
                     {
-                       console.log("erro");
+                        $("#retorno").html("Erro ao obter dados: "+data);
                     }
                 });
 

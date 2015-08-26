@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Luis 4raujo
- * Date: 25/08/15
- * Time: 00:39
+ * Class
+ * @author Luis Araujo
+ * @description
+ * @versio
+ * @package
  */
 
 //namespace Model\Bean;
@@ -11,20 +12,17 @@ require_once("../Model/Bean/Usuario.php");
 
 class Pesquisador extends Usuario{
 
+
+     private  $idPesquisador;
+     private $SIAPE;
+
+
     /**
      * @param $SIAPE int
      */
     public  function __construct($SIAPE=""){
 
     }
-
-    private  $idPesquisador;
-   private $SIAPE;
-
-   /**
-   * @type Usuario
-   */
-    private $usuario;
 
     /**
      * @param int $SIAPE
