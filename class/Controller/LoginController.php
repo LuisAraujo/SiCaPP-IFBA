@@ -1,5 +1,6 @@
 <?php
 
+require_once("SessionController.php");
 class LoginController{
 
     private  $usuarioView;
@@ -38,6 +39,10 @@ class LoginController{
         $usuarioDao = new UsuarioDAO($Usuario);
 
         $retornoDAO =  $usuarioDao->logar();
+
+        if($retornoDAO!= -1)
+            new SessionController($Usuario->getEmail(), $retornoDAO);
+
 
         $this->objUsuarioView->retornaLogin( $retornoDAO );
 
