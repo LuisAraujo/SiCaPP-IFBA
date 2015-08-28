@@ -17,13 +17,15 @@ $("#lu_form").validate({
             data: dados,
             success: function(data)
             {
-                if (data=="0")
+                if (data=="0"){
+                    setSession();
                     redireciona(AMB_BOL);
-                else if (data=="1")
+                }else if (data=="1"){
                     redireciona(AMB_PES);
-                else
+                }else{
                    //usar um span na view para informar ao usuário
                    console.log("usuário ou senha incorreto!");
+                }
             },
             error: function(data)
             {
@@ -39,4 +41,10 @@ $("#lu_form").validate({
 
 
 
+setSession = function(){
 
+
+
+
+
+};

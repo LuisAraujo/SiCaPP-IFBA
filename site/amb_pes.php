@@ -1,0 +1,5 @@
+<?php
+
+/* PAGINA AMBIENTE DO PESQUISADOR*/
+
+?>
