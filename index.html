@@ -34,7 +34,7 @@
                 <div class="col-lg-8">
                     <div class="sub_title">IFBA</div>
                     <div class="title"> Instituto Federal da Bahia </div>
-                    <div class="sub_title">SICAPP | Sistema de Projeto de Cadastro de Pesquisa</div>
+                    <div class="sub_title">SICAPP | Sistema de Cadastro de Projeto de Pesquisa</div>
                 </div>
                 <div class="col-lg-3">
                  <!-- para futuro uso -->
@@ -49,9 +49,9 @@
                <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
                   <li class="active"><a href="#">Acesso SICAPP</a></li>
-                  <li><a href="#about">Editais</a></li>
-                  <li><a href="#about">Cadastro Pesquisador</a></li>
-                  <li><a href="#about">Cadastro Bolsista</a></li>
+                  <li><a href="#editais">Editais</a></li>
+                  <li><a href="#cp">Cadastro Pesquisador</a></li>
+                  <li><a href="#cb">Cadastro Bolsista</a></li>
                   </ul>
                 </div>
             </div>
@@ -61,24 +61,24 @@
      <article>
 
         <!-- LOGIN -->
-        <div class="container">
+        <div id="container_login" class="container">
             <div class="row-fluid" >
-                <div class="col-md-5 col-md-offset-4" >
+                <div class="col-md-5 col-md-offset-3" >
                     <div class="panel  panel-success">
                         <div class="panel-heading">Acesso ao SICAPP</div>
                         <div class="panel-body">
-                            <!-- form login -->
-                            <form id="form_cadastro" role="form" method="post" action="" class="bs-example bs-example-form">
+                            <!-- form login usuario (lu) -->
+                            <form id="lu_form" role="form" method="post" action="" class="bs-example bs-example-form">
                                 <!-- usuario -->
-                                <div class="input-group" id="email_div">
-                                    <input  name="email" type="email" class="form-control" id="email" placeholder="Seu Email*" required>
+                                <div class="input-group" id="lu_email_div">
+                                    <input  name="email" type="email" class="form-control" id="lu_email" placeholder="Seu Email*" required>
                                          <span class="input-group-addon">
                                              <span class="" aria-hidden="true">Usuário</span>
                                          </span>
                                 </div>
                                 <!-- senha -->
-                                <div class="input-group" id="senha_div" >
-                                    <input  name="nome" type="text" class="form-control" id="senha" placeholder="Sua Senha*" required>
+                                <div class="input-group" id="lu_senha_div" >
+                                    <input  name="senha" type="text" class="form-control" id="lu_senha" placeholder="Sua Senha*" required>
                                          <span class="input-group-addon">
                                              <span class="" aria-hidden="true">Senha &nbsp;</span>
                                          </span>
@@ -88,7 +88,7 @@
 
                                 <button type="submit" class="btn btn-success">
                                     <h5> Acessar </h5>
-                                </button>
+                                </button >
                             </form>
                         </div>
                     </div>
@@ -99,10 +99,175 @@
 
 
          <!-- CADASTRO PESQUISADOR -->
+         <div id="container_cadastra_pesq" class="container" style="display: none">
+             <div class="row-fluid" >
+                 <div class="col-md-5 col-md-offset-3" >
+                     <div class="panel  panel-success">
+                         <div class="panel-heading">Cadastro Pesquisador | SICAPP</div>
+                         <div class="panel-body">
+                             <!-- form cadastro pesquisador (cp) -->
+                             <form id="cp_form" role="form" method="post" action="" class="bs-example bs-example-form">
+
+                                 <!-- nome -->
+                                 <div class="input-group" id="cp_nome_div">
+                                     <input  name="nome" type="text" class="form-control" id="cp_nome" placeholder="Seu Nome*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Nome &nbsp;&nbsp;&nbsp;</span>
+                                         </span>
+                                 </div>
+
+
+                                 <!-- cpf -->
+                                 <div class="input-group" id="cp_cpf_div">
+                                     <input  name="cpf" type="text" class="form-control" id="cp_cpf" placeholder="Seu CPF*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">CPF &nbsp;&nbsp; &nbsp;&nbsp;</span>
+                                         </span>
+                                 </div>
+
+                                 <!-- siape -->
+                                 <div class="input-group" id="cp_siape_div">
+                                     <input  name="siape" type="text" class="form-control" id="cp_siape" placeholder="Seu SIAPE*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">SIAPE &nbsp;&nbsp;</span>
+                                         </span>
+                                 </div>
+
+                                 <!-- lattes -->
+                                 <div class="input-group" id="cp_lattes_div">
+                                     <input  name="lattes" type="text" class="form-control" id="cp_lattes" placeholder="Endereço do seu Lattes*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Lattes&nbsp;&nbsp;&nbsp;</span>
+                                         </span>
+                                 </div>
+
+                                 <!-- usuario -->
+                                 <div class="input-group" id="cp_email_div">
+                                     <input  name="email" type="email" class="form-control" id="cp_email" placeholder="Seu Email*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Usuário</span>
+                                         </span>
+                                 </div>
+                                 <!-- senha -->
+                                 <div class="input-group" id="cp_senha_div" >
+                                     <input  name="nome" type="text" class="form-control" id="cp_senha" placeholder="Sua Senha*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                         </span>
+                                 </div>
+
+                                 <!-- senha -->
+                                 <div class="input-group" id="cp_confirm_senha_div" >
+                                     <input  name="nome" type="text" class="form-control" id="cp_confirm_senha" placeholder="Confirme sua Senha*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                         </span>
+                                 </div>
+
+
+                                 <!-- titulação -->
+                                 <div class="btn-group" id="cp_titulacao_div" style="width: 100%">
+                                     <button id="drop_titulacao"  name="titulacao" type="button" value="none" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                         <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_escolaridade">Titulacao*</span> <span class="caret"></span>
+                                     </button>
+                                     <ul class="dropdown-menu">
+
+                                         <li><a href="#" value="">Especialista</a></li>
+                                         <li><a href="#" value="">Mestre</a></li>
+                                         <li><a href="#" value="">Doutor</a></li>
+                                         <li><a href="#" value="">Pós-Doutor</a></li>
+                                     </ul>
+                                 </div>
+
+
+                                 <button type="submit" class="btn btn-success">
+                                     <h5> Cadastrar </h5>
+                                 </button>
+                             </form>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
          <!-- FIM CADASTRO PESQUISADOR -->
 
 
          <!-- CADASTRO BOLSISTA -->
+        <div id="container_cadastra_bolsitas" class="container" style="display: none">
+            <div class="row-fluid" >
+                <div class="col-md-5 col-md-offset-3" >
+                    <div class="panel  panel-success">
+                        <div class="panel-heading">Cadastro Bolsista | SICAPP</div>
+                        <div class="panel-body">
+                            <!-- form cadastro bolsista (cb) -->
+                            <form id="cb_form" role="form" method="post" action="" class="bs-example bs-example-form">
+
+                                <!-- nome -->
+                                <div class="input-group" id="cb_nome_div">
+                                    <input  name="nome" type="text" class="form-control" id="cb_nome" placeholder="Seu Nome*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Nome &nbsp;&nbsp;&nbsp;</span>
+                                         </span>
+                                </div>
+
+
+                                <!-- cpf -->
+                                <div class="input-group" id="cb_cpf_div">
+                                    <input  name="cpf" type="text" class="form-control" id="cb_cpf" placeholder="Seu CPF*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">CPF &nbsp;&nbsp; &nbsp;&nbsp;</span>
+                                         </span>
+                                </div>
+
+                                <!-- siape -->
+                                <div class="input-group" id="cb_siape_div">
+                                    <input  name="siape" type="text" class="form-control" id="cb_siape" placeholder="Sua Matrícula*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Matrícula</span>
+                                         </span>
+                                </div>
+
+                                <!-- lattes -->
+                                <div class="input-group" id="cb_lattes_div">
+                                    <input  name="lattes" type="text" class="form-control" id="cb_lattes" placeholder="Endereço do seu Lattes*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Lattes&nbsp;&nbsp;&nbsp;</span>
+                                         </span>
+                                </div>
+
+                                <!-- usuario -->
+                                <div class="input-group" id="cb_email_div">
+                                    <input  name="email" type="email" class="form-control" id="cb_email" placeholder="Seu Email*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Usuário</span>
+                                         </span>
+                                </div>
+                                <!-- senha -->
+                                <div class="input-group" id="cb_senha_div" >
+                                    <input  name="nome" type="text" class="form-control" id="cb_senha" placeholder="Sua Senha*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                         </span>
+                                </div>
+
+                                <!-- senha -->
+                                <div class="input-group" id="cb_confirm_senha_div" >
+                                    <input  name="nome" type="text" class="form-control" id="cb_confirm_senha" placeholder="Confirme sua Senha*" required>
+                                         <span class="input-group-addon">
+                                             <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                         </span>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-success">
+                                    <h5> Cadastrar </h5>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
          <!-- FIM CADASTRO BOLSISTA -->
 
 
@@ -114,9 +279,9 @@
     </article>
     <footer class="container" >
         <div id="footer_sicapp" class="row">
-            <div class="col-lg-12 col-md-offset-2" >
-            <div class="modal-footer">Desenvolvido pelo <a href="">Grupo de informática Aplicada</a> (GIA) do <a href="">IFBA Campus Santo Amaro</a>
-            utilizando <i>softwares</i> e tecnologia livre.</div>
+            <div class="col-lg-9 col-lg-offset-1" >
+            <div class="page_footer">SICAPP | Sistemade de Cadastro de Projeto de Pesquisa v 1.0. Copyright c <a href="">Grupo de informática Aplicada</a> (GIA) do <a href="">IFBA Campus Santo Amaro</a>.
+            Sistema desenvolvido utilizando <i>softwares</i> e tecnologia livre.</div>
             </div>
         </div>
     </footer>
@@ -128,6 +293,10 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="resource/scripts_js/bootstrap.min.js"></script>
+<script src="resource/scripts_js/jquery.validate.js"></script>
+
+<script src="resource/scripts_js/scriptsInteracao.js"></script>
+<script src="resource/scripts_js/scriptsAjax.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="resource/scripts_js/ie10-viewport-bug-workaround.js"></script>
 </body>

@@ -37,7 +37,7 @@ footer{
     color: #3a774a;
 }
 #footer_sicapp{
-    position:absolute; bottom: 0px;
+
 }
 
 .title{
@@ -50,4 +50,14 @@ footer{
 }
 .sub_title{
     font-family: Open Sans; font-size: .85em;  display: block; height: 21px;
+}
+
+article{
+    min-height: 700px;
+}
+
+.page_footer{
+    text-align: center;
+    border-top: 1px solid #4c7753;
+
 }
