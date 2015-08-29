@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Class LoginController
+ * @author Luis Araujo
+ * @description Classe controladora do Login
+ * @versio 1.0
+ * @package Controller/
+ */
 require_once("SessionController.php");
 class LoginController{
 
@@ -41,10 +47,10 @@ class LoginController{
         $retornoDAO =  $usuarioDao->logar();
 
         if($retornoDAO!= -1)
-            new SessionController($Usuario->getEmail(), $retornoDAO);
-
+            $session = new SessionController($Usuario->getEmail(), $retornoDAO);
 
         $this->objUsuarioView->retornaLogin( $retornoDAO );
+
 
 
     }

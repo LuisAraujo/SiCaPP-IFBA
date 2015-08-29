@@ -1,10 +1,10 @@
 <?php
 /**
- * Class
+ * Class ProjetoView
  * @author Luis Araujo
- * @description
- * @versio
- * @package
+ * @description Classe de visão de Projeto
+ * @version 1.0
+ * @package View/
  */
 class ProjetoView {
 

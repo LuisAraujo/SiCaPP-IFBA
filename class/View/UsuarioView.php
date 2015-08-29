@@ -1,6 +1,12 @@
 <?php
 
-
+/**
+ * Class UsuarioView
+ * @author Luis Araujo
+ * @description Classe de visão de Usuario
+ * @version 1.0
+ * @package View/
+ */
 class UsuarioView{
 
     public function retornaLogin($param){

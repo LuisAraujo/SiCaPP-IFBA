@@ -1,13 +1,12 @@
 <?php
 /**
- * Class
+ * Class Pesquisador
  * @author Luis Araujo
- * @description
- * @versio
- * @package
+ * @description Classe modelo de Pesquisador
+ * @versio 1.0
+ * @package Model/
  */
 
-//namespace Model\Bean;
 require_once("../Model/Bean/Usuario.php");
 
 class Pesquisador extends Usuario{

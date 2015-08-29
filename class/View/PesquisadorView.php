@@ -1,10 +1,10 @@
 <?php
 /**
- * Class
+ * Class PesquisadorView
  * @author Luis Araujo
- * @description
- * @versio
- * @package
+ * @description Classe de visão de Pesquisador
+ * @version 1.0
+ * @package View/
  */
 class PesquisadorView extends UsuarioView{
 

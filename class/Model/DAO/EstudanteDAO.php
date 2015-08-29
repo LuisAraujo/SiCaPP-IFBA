@@ -1,13 +1,15 @@
 <?php
+/**
+ * Class EstudanteDAO
+ * @author Luis Araujo
+ * @description Classe responsável pela interação de Estudante como a base de dados
+ * @versio 1.0
+ * @package Model/DAO
+ */
+
 require_once("Persitente.php");
 require_once("UsuarioDAO.php");
-/**
-* Class EstudanteDAO
-* @author Luis Araujo
-* @description Classe responsável pela interação de estudante como a base de dados
-* @versio 1.0
-* @package Model/DAO
-*/
+
 class EstudanteDAO  extends UsuarioDAO implements Persistente{
 
     /**

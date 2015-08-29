@@ -1,12 +1,11 @@
 <?php
 /**
- * Class
+ * Class EstudanteView
  * @author Luis Araujo
- * @description
- * @versio
- * @package
+ * @description Classe de visão de Estudante
+ * @version 1.0
+ * @package View/
  */
-
 class EstudanteView extends UsuarioView{
 
     public function exibeStatusInserido($param){

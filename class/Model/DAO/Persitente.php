@@ -1,5 +1,6 @@
 <?php
 /**
+* Interface Persistent
 * @descrition Interface para classes DAO que acessam o Banco
 * @author Luis Araujo
 * @version Luis Araujo

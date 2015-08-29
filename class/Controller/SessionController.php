@@ -1,87 +1,33 @@
 <?php
-
+/**
+ * Class SessionController
+ * @author Luis Araujo
+ * @description Classe controla a criação da session de login e da requisição desses dados
+ * @versio 1.0
+ * @package Controller/
+ */
 class SessionController{
+    static public $user;
+    static public $tipo;
 
-    private $idSession;
-    private $currentSession;
-    private $user;
-    private $tipo;
+    public function __construct($user="",$tipo=""){
 
-    /**
-     * Usando padrão SINGLETON de "br.phptherightway.com"
-     * @param $user
-     * @param $tipo
-     */
+        session_start();
 
-    public static function getInstance($user="", $tipo=""){
+        if($user!="")
+        $_SESSION["user"] = $user;
+        if($user!="")
 
-        static $instance = null;
+        $_SESSION["tipo"] = $tipo;
+        Self::$user = $_SESSION["user"];
+        Self::$tipo = $_SESSION["tipo"];
 
-        if (null == $instance) {
-            $instance = new SessionController($user, $tipo);
-        }else if($user!="" && $tipo!=""){
-            $instance->setTipoSession($tipo);
-            $instance->setUserSession($user);
-        }
-        return $instance;
     }
 
-    protected  function __construct($user="", $tipo=""){
-            $this->user = $user;
-            $this->tipo = $tipo;
-            $this->currentSession = session_start();
-            $this->idSession = session_id($this->currentSession);
-    }
-
-    /**
-     * Método unserialize do tipo privado para prevenir a desserialização
-     * da instância dessa classe.
-     *
-     * @return void
-     */
-    private function __wakeup(){ }
-    /**
-    * Método clone do tipo privado previne a clonagem dessa instância
-    * da classe
-    *
-    * @return void
-    */
-    private function __clone() { }
-
-
-
-    public function setStart(){
-        $_SESSION["user"] = $this->user ;
-        $_SESSION["tipo"] = $this->tipo;
-    }
-
-    public function setUserSession($user){
-        $this->user = $user;
-    }
     public function getUserSession(){
-        return $this->user;
-    }
-    public  function setTipoSession($tipo){
-        $this->tipo = $tipo;
+     return Self::$user;
     }
     public function getTipoSession(){
-        return $this->tipo;
-    }
-
-    public function getIdSession(){
-        return $this->idSession;
+        echo Self::$tipo;
     }
 }
-
-$a = SessionController::getInstance("luis","1");
-$b = SessionController::getInstance();
-
-echo $b->getUserSession();
-echo "<br>";
-echo $b->getIdSession();
-echo "<br>";
-$c = SessionController::getInstance("marcos","1");
-echo $c->getUserSession();
-echo "<br>";
-echo $c->getIdSession();
-

@@ -1,12 +1,11 @@
 <?php
 /**
- * Class
+ * Class LoginController
  * @author Luis Araujo
- * @description
- * @version
- * @package
+ * @description Classe controladora de Pesquisador
+ * @versio 1.0
+ * @package Controller/
  */
-
 class PesquisadorController {
 
     private  $pesquisadorView;

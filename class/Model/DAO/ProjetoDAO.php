@@ -1,10 +1,10 @@
 <?php
 /**
- * Class
+ * Class ProjetoDAO
  * @author Luis Araujo
- * @description
- * @version
- * @package
+ * @description Classe responsável pela interação de Projeto como a base de dados
+ * @version 1.0
+ * @package Model/DAO
  */
 class ProjetoDAO implements Persistente{
 

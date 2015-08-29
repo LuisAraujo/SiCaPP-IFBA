@@ -1,6 +1,4 @@
 <?php
-require_once("Persitente.php");
-require_once("UsuarioDAO.php");
 /**
  * Class PesquisadorDAO
  * @author Luis Araujo
@@ -8,6 +6,10 @@ require_once("UsuarioDAO.php");
  * @version 1.0
  * @package Model/DAO
  */
+
+require_once("Persitente.php");
+require_once("UsuarioDAO.php");
+
 class PesquisadorDAO extends UsuarioDAO implements Persistente{
 
 

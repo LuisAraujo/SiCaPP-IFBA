@@ -1,10 +1,10 @@
 <?php
 /**
- * Class
+ * Class EstudanteController
  * @author Luis Araujo
- * @description
- * @versio
- * @package
+ * @description Classe controladora de Estudantes
+ * @versio 1.0
+ * @package Controller/
  */
 
 class EstudanteController {

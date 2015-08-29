@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Luis 4raujo
- * Date: 25/08/15
- * Time: 22:43
+ * Class UsuarioDAO
+ * @author Luis Araujo
+ * @description Classe responsável pela interação de Usuario como a base de dados
+ * @version 1.0
+ * @package Model/DAO
  */
 
 class UsuarioDAO{

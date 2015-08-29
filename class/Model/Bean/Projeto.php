@@ -1,11 +1,12 @@
 <?php
 /**
- * Class
+ * Class Projeto
  * @author Luis Araujo
- * @description
- * @versio
- * @package
+ * @description Classe modelo de Projeto
+ * @versio 1.0
+ * @package Model/
  */
+
 
 class Projeto {
 

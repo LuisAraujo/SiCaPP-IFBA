@@ -1,10 +1,10 @@
 <?php
 /**
- * Class
+ * Class Estudante
  * @author Luis Araujo
- * @description
- * @versio
- * @package
+ * @description Classe modelo de Usuário
+ * @versio 1.0
+ * @package Model/
  */
 
 abstract class Usuario {

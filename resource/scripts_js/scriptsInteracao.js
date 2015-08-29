@@ -1,15 +1,31 @@
 /**
- * Created by Luis 4raujo on 25/08/15.
+ * @description constante referente à caiminho de ambiente do bolsista
+ * @type {string}
  */
+AMB_BOL = "site/amb_bol.html";
+/**
+ * @description constante referente à caiminho de ambiente do pesquisador
+ * @type {string}
+ */
+AMB_PES = "site/amb_pes.html";
+/**
+ * @description constante referente à caiminho do adm
+ * @type {string}
+ */
+AMB_ADM = "/admin/";
+/**
+ * @description constante referente à caiminho da página inicial
+ * @type {string}
+ */
+AMB_HOME = "/SiCaPP-IFBA/index.html";
 
-AMB_BOL = "/amb_bolsita";
-AMB_PES = "/amb_pesquisa";
-AMB_ADM = "/admin";
 
 /**
- * Função de redirecionamento de página usada no login
- * @param param CONST
+ * @descriprion Função de redirecionamento de página usada no login
+ * @param param CONST {string}
+ * @version 1.0
+ * @author Luis Araujo
  */
 redireciona = function(param){
-    console.log(param);
+    location.href=param;
 }
