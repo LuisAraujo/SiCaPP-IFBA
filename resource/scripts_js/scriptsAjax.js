@@ -3,6 +3,10 @@
  * @version 1.0
  * @author Luis Araujo
  */
+
+$(document).ready(function(){
+
+
 $("#lu_form").validate({
 
     submitHandler: function(form) {
@@ -37,6 +41,9 @@ $("#lu_form").validate({
 });
 
 
+
+//end ready
+});
 
 /**
  * @descripition Função verifica se o usuário logado tem permissão de acesso à ambiente específico
