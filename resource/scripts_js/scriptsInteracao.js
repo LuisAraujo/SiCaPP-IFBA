@@ -29,3 +29,20 @@ AMB_HOME = "/SiCaPP-IFBA/index.html";
 redireciona = function(param){
     location.href=param;
 }
+
+
+$('#myTabs a').click(function (e) {
+  	e.preventDefault();
+  	$('.tab-pane').removeClass('active');
+  	var a_href = $(this).attr('href');
+  	var el = document.getElementById(a_href);
+  	el.className += ' active';
+})
+
+
+function showBlock(event){
+	var hash = window.location.hash;
+	if(hash == '') hash = '#login';
+	$('.box-main').css('display', 'none');
+	$(hash).css('display', 'block');
+}
