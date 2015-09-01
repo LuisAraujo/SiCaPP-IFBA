@@ -100,3 +100,20 @@ verificaUsuarioLogado = function(){
 }
 
 
+/**
+ * @descripition Pega lista de editais
+ * @version 1.0
+ * @author Silas Ribeiro
+ */
+var getEditais = function(){
+    $("#editais").load("class/Controller/Dispatcher.php?classe=Edital&acao=listar");
+}
+
+/**
+ * @descripition Pega lista de pesquisadores
+ * @version 1.0
+ * @author Silas Ribeiro
+ */
+var getPesquisadores = function(){
+    $("#pesquisadores").load("class/Controller/Dispatcher.php?classe=Pesquisador&acao=listar");
+}
