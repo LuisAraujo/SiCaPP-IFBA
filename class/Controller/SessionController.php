@@ -30,4 +30,8 @@ class SessionController{
     public function getTipoSession(){
         echo Self::$tipo;
     }
+
+    public function destroySession(){
+        session_destroy();
+    }
 }

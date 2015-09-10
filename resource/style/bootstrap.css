@@ -4917,6 +4917,7 @@ a.list-group-item {
 }
 a.list-group-item .list-group-item-heading {
   color: #333;
+  font-size: 200%;
 }
 a.list-group-item:hover,
 a.list-group-item:focus {
@@ -4946,7 +4947,7 @@ a.list-group-item:focus {
 .list-group-item.active:focus {
   z-index: 2;
   color: #fff;
-  background-color: #337ab7;
+  background-color: #419641;
   border-color: #337ab7;
 }
 .list-group-item.active .list-group-item-heading,
@@ -4963,7 +4964,7 @@ a.list-group-item:focus {
 .list-group-item.active .list-group-item-text,
 .list-group-item.active:hover .list-group-item-text,
 .list-group-item.active:focus .list-group-item-text {
-  color: #c7ddef;
+  color: #fff;
 }
 .list-group-item-success {
   color: #3c763d;
@@ -6335,3 +6336,4 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+

@@ -26,6 +26,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="../resource/scripts_js/jquery-1.11.3.min.js"></script>
+
     <script src="../resource/scripts_js/scriptsInteracao.js"></script>
     <script src="../resource/scripts_js/scriptsAjax.js"></script>
     <script> verificaPermissaoPagina();</script>
@@ -52,11 +54,13 @@
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
 
             <div class="container">
+
                 <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Meus Projetos</a></li>
-                        <li><a href="#editais">Meu Perfil</a></li>
-                        <li><a href="#cp">Editais</a></li>
+                    <ul id="myTabs" class="nav navbar-nav" role="tablist">
+                        <li class="active"  data-toggle="tab"><a href="#">Meus Projetos</a></li>
+                        <li><a href="#editais"  data-toggle="tab">Meu Perfil</a></li>
+                        <li><a href="#cp"  data-toggle="tab">Editais</a></li>
+                        <li><a id="bt_sair" href="#cp">Sair</a></li>
                     </ul>
                 </div>
             </div>
@@ -83,7 +87,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 <script src="../resource/scripts_js/bootstrap.min.js"></script>
 <script src="../resource/scripts_js/jquery.validate.js"></script>
 

@@ -6,6 +6,10 @@
 
 $(document).ready(function(){
 
+$("#bt_sair").click(function(){
+    delogaUsuario();
+    console.log("sair1");
+});
 
 $("#lu_form").validate({
 
@@ -98,6 +102,29 @@ verificaUsuarioLogado = function(){
     });
 
 }
+
+
+/**
+ * @descripition Função verifica se usuário está logado e redireciona da página home ao ambiente especifico
+ * @version 1.0
+ * @author Luis Araujo
+ */
+delogaUsuario = function(){
+    $.ajax({
+        type: "POST",
+        url: "../class/Controller/Dispatcher.php?classe=Session&acao=destroySession",
+        success: function(data)
+        {
+            redireciona(AMB_HOME);
+        },
+        error: function(data)
+        {
+            console.log("Erro ao obter dados: "+data);
+        }
+    });
+
+}
+
 
 
 /**
