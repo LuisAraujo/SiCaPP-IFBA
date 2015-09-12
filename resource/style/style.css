@@ -77,3 +77,36 @@ article{
     border:0;
     background:transparent;
 }
+
+/* situação em tabela de projetos*/
+.status-ok{
+    text-align:center;
+    color: #5cb85c;
+    font-weight: bold;
+
+}
+
+.status-ok:before{
+    content: "Em Execução";
+}
+
+.status-pendente{
+    text-align:center;
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.status-pendente:before{
+    content: "Pendente";
+}
+
+
+.status-concluido{
+    text-align:center;
+    color: #2d2d2d;
+    font-weight: bold;
+}
+
+.status-concluido:before{
+    content: "Concluído";
+}
