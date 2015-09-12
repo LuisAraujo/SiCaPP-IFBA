@@ -110,3 +110,13 @@ article{
 .status-concluido:before{
     content: "Concluído";
 }
+
+
+/*conteiner de foto perfil*/
+
+#ct-foto{
+    background-image: url('../../uploads/img_perfil/default.jpg');
+    background-size: 100%;
+    height: 200px;
+    width: 200px
+}

@@ -6,11 +6,7 @@
 
 $(document).ready(function(){
 
-$("#bt_sair").click(function(){
-    delogaUsuario();
-    console.log("sair1");
-});
-
+//login usuário
 $("#lu_form").validate({
 
     submitHandler: function(form) {
@@ -44,6 +40,31 @@ $("#lu_form").validate({
 
 });
 
+
+//edita perfil
+$("#ep_form").validate({
+    submitHandler: function(form) {
+
+        var dados = $(form).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "class/Controller/Dispatcher.php?classe=Usuario&acao=atualizar",
+            data: dados,
+            success: function(data)
+            {
+
+            },
+            error: function(data)
+            {
+
+            }
+        });
+
+        return false;
+    }
+
+});
 
 
 //end ready
