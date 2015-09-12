@@ -58,33 +58,35 @@
             <div class="container" >
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul id="myTabs" class="nav navbar-nav" role="tablist">
-                        <li class="active"  data-toggle="tab"><a href="#">Meus Projetos</a></li>
-                        <li><a href="#"  data-toggle="tab">Outros Projetos</a></li>
-                        <li><a href="#editais"  data-toggle="tab">Meu Perfil</a></li>
-                        <li><a href="#cp"  data-toggle="tab">Editais</a></li>
-                        <li><a id="bt_sair" href="#cp">Sair</a></li>
+                        <li class="active"><a href="#ct-meusprojetos" data-toggle="tab">Meus Projetos</a></li>
+                        <li><a href="#ct-outrosprojetos"  data-toggle="tab">Outros Projetos</a></li>
+                        <li><a href="#ct-perfil"  data-toggle="tab">Meu Perfil</a></li>
+                        <li><a href="#ct-editais"  data-toggle="tab">Editais</a></li>
+                        <li><a id="bt_sair" href="">Sair</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
 </header>
-<article style="margin-left: 10px">
- <div id="login" class="container tab-pane active">
-   <div class="row-fluid" >
-     <div class="col-md-9 col-md-offset-1" >
-         <div class="row">
-             <div class="col-md-4" >
+<article style="margin-left: 10px" class="tab-content">
 
+ <!-- MEUS PROJETOS -->
+ <div id="ct-meusprojetos" class="container tab-pane active">
+   <div id="row-meusprojetos" class="row-fluid" >
+     <div id="col-meusprojetos" class="col-md-9 col-md-offset-1" >
+         <!-- Linha conteiner de botão e busca -->
+         <div class="row">
+             <!-- Coluna conteiner de botão novo projeto -->
+             <div class="col-md-4" >
                  <h4 style="position: relative; top:-5px" >
                  <span class="btn label label-success" style="padding: 7px">
-
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                      Criar Novo Projeto
                  </span>
                  </h4>
              </div>
-
+             <!-- Coluna conteiner busca projeto -->
              <div class="col-md-4" >
                  <form style="position: relative; top:-10px" id="lu_form" role="form" method="post" action="" class="bs-example bs-example-form">
                      <div class="input-group input-group-sm">
@@ -93,12 +95,13 @@
                      </div>
                 </form>
              </div>
+         <!-- fim row -->
          </div>
 
-         <div class="panel panel-default">
-         <!-- class="table table-striped table-bordered" -->
+        <!-- conteiner projetos -->
+         <div id="pn-proj" class="panel panel-default">
 
-         <table  class="table table-striped table-bordered table-responsive" style="border-left:  5px solid #025310; background-color: #fff" >
+         <table  id="tb-proj" class="table table-striped table-bordered table-responsive" style="border-left:  5px solid #025310; background-color: #fff" >
              <thead class="panel-title" style="">
              <tr>
                  <th>ID</th>
@@ -145,7 +148,6 @@
                  </td>
              </tr>
 
-
              <tr>
                  <td>1045</td>
                  <td>Aprendendo e desenvolvendo...</td>
@@ -160,15 +162,144 @@
 
              </tbody>
          </table>
-
+         <!-- pn-proj-->
          </div>
-
-
+         <!-- col-meusprojetos -->
       </div>
+       <!-- row-meusprojetos -->
     </div>
-  </div>
+     <!--  ct-meusprojetos -->
+</div>
+
+
+
+<div id="ct-outrosprojetos" class="container tab-pane">
+
+    <div id="row-outrosprojetos" class="row-fluid" >
+        <div id="col-outrosprojetos" class="col-md-9 col-md-offset-1" >
+            <!-- Linha conteiner de busca -->
+            <div class="row">
+                <!-- Coluna conteiner busca projeto -->
+                <div class="col-md-4" >
+                    <form style="position: relative; top:-10px" id="busca_outros-proj" role="form" method="post" action="" class="bs-example bs-example-form">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                            <input type="text" class="form-control" placeholder="Buscar Projeto" aria-describedby="sizing-addon3">
+                        </div>
+                    </form>
+                </div>
+                <!-- fim row -->
+            </div>
+
+            <!-- conteiner projetos -->
+            <div id="pn-outrosproj" class="panel panel-default">
+
+                <table  id="tb-outrosproj" class="table table-striped table-bordered table-responsive" style="border-left:  5px solid #025310; background-color: #fff" >
+                    <thead class="panel-title" style="">
+                    <tr>
+                        <th>ID</th>
+                        <th>PROJETO</th>
+                        <th>SITUAÇÃO</th>
+                        <th>AÇÕES</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="border-radius:10px">
+                        <td>1045</td>
+                        <td>Aprendendo e desenvolvendo... </td>
+                        <td class="status-ok"></td>
+
+                        <td>
+                            <span class="btn label label-success">Visualizar</span>
+                            <span class="btn label label-warning">Editar</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1045</td>
+                        <td>Aprendendo e desenvolvendo...</td>
+                        <td class="status-ok"></td>
+
+                        <td>
+                            <span class="btn label label-success">Visualizar</span>
+                            <span class="btn label label-warning">Editar</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1045</td>
+                        <td>Aprendendo e desenvolvendo...</td>
+                        <td class="status-pendente"></td>
+
+                        <td>
+                            <span class="btn label label-success">Visualizar</span>
+                            <span class="btn label label-warning">Editar</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>1045</td>
+                        <td>Aprendendo e desenvolvendo...</td>
+                        <td class="status-concluido"></td>
+
+                        <td>
+                            <span class="btn label label-success">Visualizar</span>
+                            <span class="btn label label-warning">Editar</span>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            <!-- pn-outrosproj-->
+            </div>
+            <!-- col-outrosprojetos -->
+        </div>
+        <!-- row-outrosprojetos -->
+    </div>
+      <!-- ct-outrosprojetos -->
+</div>
+
+
+<div id="ct-perfil" class="container tab-pane">
+
+</div>
+
+<div id="ct-editais" class="container tab-pane">
+
+    <div id="row-editais" class="row-fluid" >
+        <div id="col-editais" class="col-md-9 col-md-offset-1" >
+
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                 <h4>  Editais </h4>
+                </a>
+                <a href="editais.php?a=teste" class="list-group-item">Edital Pesquisa 001/2015</a>
+                <a href="editais.php?a=teste" class="list-group-item">Edital PROEX 001/2015</a>
+                <a href="editais.php?a=teste" class="list-group-item">Edital PIBID 2015</a>
+                <a href="editais.php?a=teste" class="list-group-item">Edital PAE 2015</a>
+            </div>
+      </div>
+   </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
+
+
 <footer class="container" >
     <div id="footer_sicapp" class="row">
         <div class="col-lg-9 col-lg-offset-1" >
