@@ -7,7 +7,7 @@
 $(document).ready(function(){
 
 //login usuário
-$("#lu_form").validate({
+$("#lu_form_pes").validate({
 
     submitHandler: function(form) {
 
@@ -15,17 +15,16 @@ $("#lu_form").validate({
 
         $.ajax({
             type: "POST",
-            url: "class/Controller/Dispatcher.php?classe=Login&acao=logar",
+            url: "class/Controller/Dispatcher.php?classe=Pesquisador&acao=logar",
             data: dados,
             success: function(data)
             {
 
-                if (data=="0"){
-                    redireciona(AMB_BOL);
-                }else if (data=="1"){
+
+               if (data=="1"){
                     redireciona(AMB_PES);
                 }else{
-                   console.log("usuário ou senha incorreto!");
+                   console.log("usuário ou senha incorreto!" + data);
                 }
 
             },
@@ -39,6 +38,38 @@ $("#lu_form").validate({
     }
 
 });
+
+//cadastro pesquisador
+$("#cp_form").validate({
+
+    submitHandler: function(form) {
+
+        var dados = $(form).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "class/Controller/Dispatcher.php?classe=Pesquisador&acao=inserir",
+            data: dados,
+            success: function(data)
+            {
+                //RETORNA 1 EM CASO DE SUCESSO. Ex: if(data==1) console.log("sucesso");
+                //EXECUTA MODAL COMO SUCESSO (BOTÃO PARA A TELA DE LOGINA)
+                //LIMPA OS CAMPUS
+
+
+            },
+            error: function(data)
+            {
+                //EXECUTA MODAL COMO AVISO DE ERRO
+
+            }
+        });
+
+        return false;
+    }
+
+});
+
 
 
 //edita perfil
@@ -63,6 +94,72 @@ $("#ep_form").validate({
 
         return false;
     }
+
+});
+
+
+
+
+
+/**
+ * @descripition Função obtem escolaridades cadastradas no banco
+ * @version 1.0
+ * @author Luis Araujo
+ */
+$("#drop_titulacao").click(function(){
+
+    $.ajax({
+        type: "POST",
+        url: "class/Controller/Dispatcher.php?classe=Titulacao&acao=buscarTodos",
+        success: function(data)
+        {
+            $("#dorp_escolaridade").html("");
+            for(var i = 0; i < data.length; i++){
+                $("#dorp_escolaridade").html(data);
+            }
+
+            $("#dorp_escolaridade > li > a").click(function(){
+                $("#placeholder_escolaridade").html($(this).html());
+                $("#cp_titulacao").attr("value",$(this).attr("value"));
+            });
+        },
+        error: function(data)
+        {
+            console.log("erro");
+        }
+    });
+
+
+});
+
+
+
+/**
+ * @descripition Função obtem campus cadastradas no banco
+ * @version 1.0
+ * @author Luis Araujo
+ */
+$("#drop_campus").click(function(){
+    $.ajax({
+        type: "POST",
+        url: "class/Controller/Dispatcher.php?classe=Campus&acao=buscarTodos",
+        success: function(data)
+        {
+            $("#dorp_campus").html("");
+            for(var i = 0; i < data.length; i++){
+                $("#dorp_campus").html(data);
+            }
+
+            $("#dorp_campus > li > a").click(function(){
+                $("#placeholder_campus").html($(this).html());
+                $("#cp_campus").attr("value",$(this).attr("value"));
+            });
+        },
+        error: function(data)
+        {
+            console.log("erro");
+        }
+    });
 
 });
 
@@ -145,7 +242,6 @@ delogaUsuario = function(){
     });
 
 }
-
 
 
 /**

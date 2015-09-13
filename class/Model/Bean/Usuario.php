@@ -21,11 +21,15 @@ abstract class Usuario {
     }
 
    // private $idUsuario;
+    private $id;
     private $nome;
     private $CPF;
     private $enderecoLattes;
     private $email;
     private $senha;
+    private $titulacao;
+    private $campus;
+
 
     /**
      * @param string $CPF
@@ -110,6 +114,55 @@ abstract class Usuario {
 
 
 
+    /**
+     * @param string $titulacao
+     */
+    public function setTitulacao($titulacao)
+    {
+
+        $this->titulacao = $titulacao;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitulacao()
+    {
+        return $this->titulacao;
+    }
+
+
+    /**
+     * @param string $titulacao
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $campus
+     */
+    public function setCampus($campus)
+    {
+        $this->campus = $campus;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCampus()
+    {
+        return $this->campus;
+    }
 
 
 

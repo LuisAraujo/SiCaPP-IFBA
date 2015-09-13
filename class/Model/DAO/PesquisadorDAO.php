@@ -37,13 +37,16 @@ class PesquisadorDAO extends UsuarioDAO implements Persistente{
      */
     public function inserir()
     {
-        //chama inserir de usuárioDAO e pega o id de retorno
-        //se id -1 erro
-        //senão insere com referência a usuario de id retorno
-        //retorna id se tudo correto
-        //retorna -1 se erro (apaga usuario)
+        $query = "INSERT INTO sicapp_pesquisadores(cpf, nome, lattes, email, senha, siape, titulacoes_idtitulacoes, sicapp_campus_idcampus)
+        VALUES('".$this->pesquisador->getCPF()."','".$this->pesquisador->getNome()."','".$this->pesquisador->getEnderecoLattes()."','".$this->pesquisador->getEmail()."',
+        '".$this->pesquisador->getSenha()."','".$this->pesquisador->getSIAPE()."','".$this->pesquisador->getTitulacao()."','".$this->pesquisador->getCampus()."')";
 
-        return $this->pesquisador->getNome();
+        $resp = mysql_query($query);
+
+        if(!$resp)
+            return 0;
+        else
+            return 1;
     }
 
     /**
@@ -52,9 +55,42 @@ class PesquisadorDAO extends UsuarioDAO implements Persistente{
      */
     public function atualizar()
     {
-        // TODO: Implement atualizar() method.
+        $query = "UPDATE sicapp_pesquisadores SET   cpf = ".$this->pesquisador->getCPF().",nome =".$this->pesquisador->getNome().",lattes =".$this->pesquisador->getEnderecoLattes().",
+        email =". $this->pesquisador->getEmail() .", senha = ". $this->pesquisador->getSenha().",siape = ".$this->pesquisador->getSIAPE().",titulacoes_idtitulacoes =". $this->pesquisador->getTituacao().
+        "WHERE sicapp_pesquisadores.idpesquisadores = ".$this->pesquisador->getId().";";
+
+        $resp = mysql_query($query) or die(mysql_error());
+
+        return $resp;
+    }
+
+    public function buscar(){
+        $query = "SELECT *   FROM sicapp_pesquisadores WHERE sicapp_pesquisadores.idpesquisadores = ".$this->pesquisador->getId().";";
+
+
     }
 
 
+    public function logar(){
+
+        $sql="select count(*) from sicapp_pesquisadores where senha ='". $this->pesquisador->getSenha()."' and email='".$this->pesquisador->getEmail()."'";
+
+        $result = mysql_query($sql) or die(mysql_error());
+
+        $fetch = mysql_fetch_row($result);
+        //pesquisador
+        if($fetch[0]=="1")
+            return 1;
+        //estudante
+        else if($fetch[0]=="0")
+            return 0;
+        //nao encontrou
+        else
+            return -1;
+
+
+
+
+    }
 
 }

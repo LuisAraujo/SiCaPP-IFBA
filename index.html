@@ -71,28 +71,52 @@
 
     <article>
         <div class="tab-content">
+
             <!-- LOGIN -->
             <div id="login" class="container tab-pane active">
+                <!-- ESCOLHE LOGIN -->
+                <div id="select_login" class="">
+                    <div class="row-fluid" >
+
+                        <div class="col-md-3 col-md-offset-3" >
+                            <div id="ct-img-pesq" >
+                                <img id="img-pesq-login" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="imgs/icos/img_pesquisador.png" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" >
+                            <div id="ct-img-bol" >
+                                <img id="img-bol-login" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="imgs/icos/img_bolsista.png" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- LOGIN PESCADOR -->
+
                 <div class="row-fluid" >
                     <div class="col-md-5 col-md-offset-3" >
                         <div class="panel  panel-success">
-                            <div class="panel-heading">Acesso ao SICAPP</div>
+                            <div class="panel-heading">Acesso ao SICAPP | Pesquisador</div>
                             <div class="panel-body">
                                 <!-- form login usuario (lu) -->
-                                <form id="lu_form" role="form" method="post" action="" class="bs-example bs-example-form">
+                                <form id="lu_form_pes" role="form" method="post" action="" class="bs-example bs-example-form">
                                     <!-- usuario -->
-                                    <div class="input-group" id="lu_email_div">
-                                        <input  name="email" type="email" class="form-control" id="lu_email" placeholder="Seu Email*" required>
+                                    <div class="input-group" id="lu_email_pes_div">
+                                        <input  name="email" type="email" class="form-control" id="lu_email_pes" placeholder="Seu Email*" required>
                                         <span class="input-group-addon">
                                             <span class="" aria-hidden="true">Usuário</span>
                                         </span>
                                     </div>
                                     <!-- senha -->
-                                    <div class="input-group" id="lu_senha_div" >
-                                        <input  name="senha" type="text" class="form-control" id="lu_senha" placeholder="Sua Senha*" required>
+                                    <div class="input-group" id="lu_senha_pes_div" >
+                                        <input  name="senha" type="text" class="form-control" id="lu_senha_pes" placeholder="Sua Senha*" required>
                                         <span class="input-group-addon">
                                             <span class="" aria-hidden="true">Senha &nbsp;</span>
                                         </span>
+
                                     </div>
                                     <div> <a>Esqueci minha senha</a> </div>
                                     <button type="submit" class="btn btn-success">
@@ -103,8 +127,44 @@
                         </div>
                     </div>
                 </div>
+
+
+                <!-- LOGIN BOLSISTA -->
+                <div class="row-fluid" >
+                    <div class="col-md-5 col-md-offset-3" >
+                        <div class="panel  panel-success">
+                            <div class="panel-heading">Acesso ao SICAPP | Bolsista</div>
+                            <div class="panel-body">
+                                <!-- form login usuario (lu) -->
+                                <form id="lu_form_bol" role="form" method="post" action="" class="bs-example bs-example-form">
+                                    <!-- usuario -->
+                                    <div class="input-group" id="lu_email_bol_div">
+                                        <input  name="email" type="email" class="form-control" id="lu_email_bol" placeholder="Seu Email*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Usuário</span>
+                                        </span>
+                                    </div>
+                                    <!-- senha -->
+                                    <div class="input-group" id="lu_senha_bol_div" >
+                                        <input  name="senha" type="text" class="form-control" id="lu_senha_bol" placeholder="Sua Senha*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                        </span>
+
+                                    </div>
+                                    <div> <a>Esqueci minha senha</a> </div>
+                                    <button type="submit" class="btn btn-success">
+                                        <h5> Acessar </h5>
+                                    </button >
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <!-- FIM LOGIN -->
+
 
             <!-- CADASTRO PESQUISADOR -->
             <div id="cp" class="container tab-pane">
@@ -152,30 +212,41 @@
                                 </div>
                                 <!-- senha -->
                                 <div class="input-group" id="cp_senha_div" >
-                                    <input  name="nome" type="text" class="form-control" id="cp_senha" placeholder="Sua Senha*" required>
+                                    <input  name="senha" type="text" class="form-control" id="cp_senha" placeholder="Sua Senha*" required>
                                     <span class="input-group-addon">
                                         <span class="" aria-hidden="true">Senha &nbsp;</span>
                                     </span>
                                 </div>
                                 <!-- senha -->
                                 <div class="input-group" id="cp_confirm_senha_div" >
-                                    <input  name="nome" type="text" class="form-control" id="cp_confirm_senha" placeholder="Confirme sua Senha*" required>
+                                    <input  name="senha2" type="text" class="form-control" id="cp_confirm_senha" placeholder="Confirme sua Senha*" required>
                                     <span class="input-group-addon">
                                         <span class="" aria-hidden="true">Senha &nbsp;</span>
                                     </span>
                                 </div>
                                 <!-- titulação -->
                                 <div class="btn-group" id="cp_titulacao_div" style="width: 100%">
-                                    <button id="drop_titulacao"  name="titulacao" type="button" value="none" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
-                                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_escolaridade">Titulacao*</span> <span class="caret"></span>
+                                    <input id="cp_titulacao" name="titulacao" value=""  style="display: none" />
+                                    <button id="drop_titulacao" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_escolaridade">Titulacao*</span> <span class="caret"></span>
                                     </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#" value="">Especialista</a></li>
-                                        <li><a href="#" value="">Mestre</a></li>
-                                        <li><a href="#" value="">Doutor</a></li>
-                                        <li><a href="#" value="">Pós-Doutor</a></li>
+                                    <ul id="dorp_escolaridade" class="dropdown-menu">
+
                                     </ul>
                                 </div>
+
+
+                                <!-- campus -->
+                                <div class="btn-group" id="cp_campus_div" style="width: 100%">
+                                    <input id="cp_campus" name="campus" value=""  style="display: none">
+                                    <button id="drop_campus" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_campus">Campus*</span> <span class="caret"></span>
+                                    </button>
+                                    <ul id="dorp_campus" class="dropdown-menu">
+                                    </ul>
+                                </div>
+
+
                                 <button type="submit" class="btn btn-success">
                                     <h5> Cadastrar </h5>
                                 </button>
@@ -257,10 +328,26 @@
             <!-- FIM CADASTRO BOLSISTA -->
 
             <!-- EXIBE EDITAIS -->
-            <div id="editais" class="container tab-pane"></div>
+            <div id="editais" class="container tab-pane">
+
+                <div id="row-editais" class="row-fluid" >
+                    <div id="col-editais" class="col-md-9 col-md-offset-1" >
+
+                        <div class="list-group">
+                            <a href="#" class="list-group-item active">
+                                <h4>  Editais </h4>
+                            </a>
+                            <a href="editais.php?a=teste" class="list-group-item">Edital Pesquisa 001/2015</a>
+                            <a href="editais.php?a=teste" class="list-group-item">Edital PROEX 001/2015</a>
+                            <a href="editais.php?a=teste" class="list-group-item">Edital PIBID 2015</a>
+                            <a href="editais.php?a=teste" class="list-group-item">Edital PAE 2015</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- FIM EXIBE EDITAIS -->
 
-            <!-- EXIBE Busca de pesquisador -->
+            <!-- BUSCA PESQUISADOR-->
             <div id="bp" class="container tab-pane">
                 <div class="input-group input-group-lg">
                     <input type="text" class="form-control" placeholder="Buscar" aria-describedby="basic-addon1">
@@ -270,7 +357,7 @@
                 </div>
                 <div id="pesquisadores"></div>
             </div>
-            <!-- FIM EXIBE EDITAIS -->
+            <!-- FIM BUSCA PESQUISADOR -->
         </div>
     </article>
     <footer class="container" >

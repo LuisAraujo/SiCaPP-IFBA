@@ -20,6 +20,12 @@ AMB_ADM = "/admin/";
 AMB_HOME = "/SiCaPP-IFBA/index.html";
 
 
+function Vector2(a, b) {
+    this.A = a;
+    this.B = b;
+
+}
+
 /**
  * @descriprion Função de redirecionamento de página usada no login
  * @param param CONST {string}
@@ -93,5 +99,6 @@ $(document).ready(function(){
     $("#img-foto-perfil").click(function(){
         $("#ep-foto").trigger("click");
     });
+
 
 });
