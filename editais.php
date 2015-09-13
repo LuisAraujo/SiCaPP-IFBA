@@ -2,7 +2,7 @@
 
 $edital = $_GET["a"];
 $nomeArquivo = $edital.".pdf";
-$caminhoArquivo = "../uploads/editais/".$nomeArquivo;
+$caminhoArquivo = "uploads/editais/".$nomeArquivo;
 
 if(isset($caminhoArquivo ) && file_exists($caminhoArquivo )){
     // faz o teste se a variavel não esta vazia e se o arquivo realmente existe
