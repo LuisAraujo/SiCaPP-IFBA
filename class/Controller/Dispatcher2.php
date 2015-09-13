@@ -8,16 +8,16 @@ require_once("includes/Conexao.php");
 
 $metodo = $_GET['acao'];
 $classe = $_GET['classe'];
-$controllerClasse = $classe."Controller";
+$viewClasse = $classe."View";
 
 //Url Controller
-$urlController = "../Controller/" .$controllerClasse. ".php";
-require_once($urlController);
+$urlView = "../View/" .$viewClasse. ".php";
+require_once($urlView);
 
 //Instancia o objeto do tipo
-$objController = new $controllercClasse();
+$objView = new $viewClasse();
 
 //Chamanda de método
-$lista = $objController->$metodo();
+$lista = $objView->$metodo();
 
 ?>

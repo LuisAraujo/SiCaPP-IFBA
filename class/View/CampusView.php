@@ -6,6 +6,7 @@
  * Time: 01:18
  */
 
+include("../Controller/CampusController.php");
 class CampusView {
 
     public function exibeCampus($param){
@@ -16,7 +17,11 @@ class CampusView {
 
 
 
-    public function exibeTodosCampus($param){
+    public function listar(){
+
+        $controller = new CampusController();
+
+        $param =  $controller->buscarTodos();
 
         $l =0;
         $linha = [];

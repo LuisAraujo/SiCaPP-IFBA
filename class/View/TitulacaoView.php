@@ -1,19 +1,24 @@
 <?php
 
-
+include("../Controller/TitulacaoController.php");
 class TitulacaoView{
 
+    public function exibeTitulacao(){
+      $controller = new CampusController();
 
-
-    public function exibeTitulacao($param){
+      $param =  $controller->buscar();
 
       $linha ="<li><a href='#' value='".$param."'>".$param."</a></li>";
-      echo  $linha;
+
+      echo  utf8_encode ($linha);
     }
 
 
+    public function listar(){
 
-    public function exibeTodasTitulacoes($param){
+        $controller = new TitulacaoController();
+
+        $param =  $controller->buscarTodos();
 
         $l =0;
         $linha = [];

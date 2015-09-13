@@ -7,6 +7,7 @@
  * @package Model/DAO
  */
 
+//CLASSE OBSOLETA!!!!!!!
 class UsuarioDAO{
 
     public $usuario;

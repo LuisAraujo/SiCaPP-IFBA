@@ -39,7 +39,14 @@ class CampusController {
 
         $campusDao = new CampusDAO();
         $retornoDAO = $campusDao->buscarTodos();
-        $this->objCampusView->exibeTodosCampus( $retornoDAO );
+
+        return $retornoDAO;
+        //$this->objCampusView->exibeTodosCampus( $retornoDAO );
+
+    }
+
+    public function buscar(){
+
 
     }
 

@@ -15,22 +15,22 @@ $("#lu_form_pes").validate({
 
         $.ajax({
             type: "POST",
-            url: "class/Controller/Dispatcher.php?classe=Pesquisador&acao=logar",
+            url: "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=logar",
             data: dados,
             success: function(data)
             {
-
+                console.log(data);
 
                if (data=="1"){
                     redireciona(AMB_PES);
                 }else{
-                   console.log("usuário ou senha incorreto!" + data);
+                   console.log("usuário ou senha incorreto!");
                 }
 
             },
             error: function(data)
             {
-                console.log("Erro ao obter dados: "+data);
+                console.log("Erro ao obter dados");
             }
         });
 
@@ -48,10 +48,12 @@ $("#cp_form").validate({
 
         $.ajax({
             type: "POST",
-            url: "class/Controller/Dispatcher.php?classe=Pesquisador&acao=inserir",
+            url: "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=inserir",
             data: dados,
             success: function(data)
             {
+
+                console.log(data);
                 //RETORNA 1 EM CASO DE SUCESSO. Ex: if(data==1) console.log("sucesso");
                 //EXECUTA MODAL COMO SUCESSO (BOTÃO PARA A TELA DE LOGINA)
                 //LIMPA OS CAMPUS
@@ -73,14 +75,14 @@ $("#cp_form").validate({
 
 
 //edita perfil
-$("#ep_form").validate({
+$("#ep_form_pes").validate({
     submitHandler: function(form) {
 
         var dados = $(form).serialize();
 
         $.ajax({
             type: "POST",
-            url: "class/Controller/Dispatcher.php?classe=Usuario&acao=atualizar",
+            url: "class/Controller/Dispatcher2.php?classePesquisador=&acao=atualizar",
             data: dados,
             success: function(data)
             {
@@ -110,7 +112,7 @@ $("#drop_titulacao").click(function(){
 
     $.ajax({
         type: "POST",
-        url: "class/Controller/Dispatcher.php?classe=Titulacao&acao=buscarTodos",
+        url: "class/Controller/Dispatcher2.php?classe=Titulacao&acao=listar",
         success: function(data)
         {
             $("#dorp_escolaridade").html("");
@@ -142,7 +144,7 @@ $("#drop_titulacao").click(function(){
 $("#drop_campus").click(function(){
     $.ajax({
         type: "POST",
-        url: "class/Controller/Dispatcher.php?classe=Campus&acao=buscarTodos",
+        url: "class/Controller/Dispatcher2.php?classe=Campus&acao=listar",
         success: function(data)
         {
             $("#dorp_campus").html("");
@@ -175,7 +177,7 @@ $("#drop_campus").click(function(){
 verificaPermissaoPagina = function(){
     $.ajax({
         type: "POST",
-        url: "../class/Controller/Dispatcher.php?classe=Session&acao=getTipoSession",
+        url: "../class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession",
         success: function(data)
         {
             page = $("body").attr("page");
@@ -201,7 +203,7 @@ verificaPermissaoPagina = function(){
 verificaUsuarioLogado = function(){
     $.ajax({
         type: "POST",
-        url: "class/Controller/Dispatcher.php?classe=Session&acao=getTipoSession",
+        url: "class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession",
         success: function(data)
         {
             page = $("body").attr("page");
@@ -230,7 +232,7 @@ verificaUsuarioLogado = function(){
 delogaUsuario = function(){
     $.ajax({
         type: "POST",
-        url: "../class/Controller/Dispatcher.php?classe=Session&acao=destroySession",
+        url: "../class/Controller/Dispatcher2.php?classe=Session&acao=deslogaUsuario",
         success: function(data)
         {
             redireciona(AMB_HOME);
@@ -245,16 +247,16 @@ delogaUsuario = function(){
 
 
 /**
- * @descripition Pega lista de editais
+ * @descripition Pega lista de editais [edital nao implementado]
  * @version 1.0
  * @author Silas Ribeiro
  */
 var getEditais = function(){
-    $("#editais").load("class/Controller/Dispatcher.php?classe=Edital&acao=listar");
+    $("#editais").load("class/Controller/Dispatcher2.php?classe=Edital&acao=listar");
 }
 
 /**
- * @descripition Pega lista de pesquisadores
+ * @descripition Pega lista de pesquisadores [listar nao implementado]
  * @version 1.0
  * @author Silas Ribeiro
  */

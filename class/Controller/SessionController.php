@@ -16,9 +16,9 @@ class SessionController{
 
         if($user!="")
         $_SESSION["user"] = $user;
-        if($user!="")
-
+        if($tipo!="")
         $_SESSION["tipo"] = $tipo;
+
         Self::$user = $_SESSION["user"];
         Self::$tipo = $_SESSION["tipo"];
 
@@ -28,7 +28,7 @@ class SessionController{
      return Self::$user;
     }
     public function getTipoSession(){
-        echo Self::$tipo;
+        return Self::$tipo;
     }
 
     public function destroySession(){

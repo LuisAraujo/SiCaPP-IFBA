@@ -38,7 +38,9 @@ class TitulacaoController {
 
         $titulacaoDao = new TitulacaoDAO();
         $retornoDAO = $titulacaoDao->buscarTodos();
-        $this->objTitulacaoView->exibeTodasTitulacoes( $retornoDAO );
+
+        return $retornoDAO;
+        //$this->objTitulacaoView->exibeTodasTitulacoes( $retornoDAO );
 
     }
 } 

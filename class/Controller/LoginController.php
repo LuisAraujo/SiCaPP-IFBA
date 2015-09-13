@@ -49,7 +49,9 @@ class LoginController{
         if($retornoDAO!= -1)
             $session = new SessionController($Usuario->getEmail(), $retornoDAO);
 
-        $this->objUsuarioView->retornaLogin( $retornoDAO );
+
+        return $retornoDAO;
+        //$this->objUsuarioView->retornaLogin( $retornoDAO );
 
 
 

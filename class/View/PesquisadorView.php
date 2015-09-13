@@ -7,9 +7,9 @@
  * @package View/
  */
 
-include("UsuarioView.php");
+include("../Controller/PesquisadorController.php");
 
-class PesquisadorView extends UsuarioView{
+class PesquisadorView{
 
 
     public function exibeStatusInserido($param){
@@ -18,9 +18,18 @@ class PesquisadorView extends UsuarioView{
     }
 
 
-    public function retornaLogin($param){
+    public function logar(){
         //1 = professor, 0 = estudantes, -1 = erro
-        echo $param;
+        $controller = new PesquisadorController();
+
+        echo $controller->logar();
+    }
+
+    public  function inserir(){
+
+        $controller = new PesquisadorController();
+
+        echo $controller->inserir();
     }
 
 } 

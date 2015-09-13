@@ -52,7 +52,8 @@ class EstudanteController {
 
         $retornoDAO = $estudanteDao->atualizar();
 
-        $this->objEstudanteView->exibeStatusInserido( $retornoDAO );
+        return $retornoDAO;
+        //$this->objEstudanteView->exibeStatusInserido( $retornoDAO );
 
     }
 
@@ -74,7 +75,8 @@ class EstudanteController {
 
         $retornoDAO = $estudanteDao->atualizar();
 
-        $this->objEstudanteView->exibeStatusAtualizado( $retornoDAO );
+        return $retornoDAO;
+        //$this->objEstudanteView->exibeStatusAtualizado( $retornoDAO );
 
 
     }
@@ -91,7 +93,8 @@ class EstudanteController {
 
         $retornoDAO = $estudanteDao->deletar();
 
-        $this->objEstudanteView->exibeStatusDeletado( $retornoDAO );
+        return $retornoDAO;
+        //$this->objEstudanteView->exibeStatusDeletado( $retornoDAO );
 
     }
 

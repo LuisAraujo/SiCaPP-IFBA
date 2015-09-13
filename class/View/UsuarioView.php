@@ -7,6 +7,8 @@
  * @version 1.0
  * @package View/
  */
+
+//CLASSE OBSOLETA
 class UsuarioView{
 
     public function retornaLogin($param){

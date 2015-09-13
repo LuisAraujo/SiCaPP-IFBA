@@ -7,7 +7,7 @@
  * @package Controller/
  */
 
-include("../View/PesquisadorView.php");
+//include("../View/PesquisadorView.php");
 require_once("SessionController.php");
 class PesquisadorController {
 
@@ -23,8 +23,8 @@ class PesquisadorController {
         require_once($this->pesquisadorClass);
 
         //Url View
-        $this->pesquisadorView = "../View/PesquisadorView.php";
-        require_once($this->pesquisadorView);
+        //$this->pesquisadorView = "../View/PesquisadorView.php";
+        //require_once($this->pesquisadorView);
 
         //Url DAO
         $this->pesquisadorDAO = "../Model/DAO/PesquisadorDAO.php";
@@ -54,7 +54,8 @@ class PesquisadorController {
 
         $retornoDAO = $pesquisadorDao->inserir();
 
-        $this->objPesquisadorView->exibeStatusInserido( $retornoDAO );
+        return $retornoDAO;
+        //$this->objPesquisadorView->exibeStatusInserido( $retornoDAO );
 
     }
 
@@ -63,6 +64,23 @@ class PesquisadorController {
     }
 
     public function deletePesquisador(){
+
+    }
+
+    public function obterDadosPesquisador(){
+        Conexao::Conectar();
+
+        $novoPesquisador = new Pesquisador();
+        $session = new SessionController();
+        $novoPesquisador->setId($session->getUserSession());
+
+        $pesquisadorDao = new PesquisadorDAO($novoPesquisador);
+
+        $retornoDAO = $pesquisadorDao->buscar();
+
+
+        return $retornoDAO;
+        //$this->objPesquisadorView->exibeStatusInserido( $retornoDAO );
 
     }
 
@@ -77,14 +95,16 @@ class PesquisadorController {
         $Usuario->setEmail($_POST["email"]);
 
         //polimorfirmos
-        $usuarioDao = new PesquisadorDAO($Usuario);
+        $pesquisadorDao = new PesquisadorDAO($Usuario);
 
-        $retornoDAO =  $usuarioDao->logar();
+        $retornoDAO =  $pesquisadorDao->logar();
 
         if($retornoDAO!= -1)
-            $session = new SessionController($Usuario->getEmail(), $retornoDAO);
+            $session = new SessionController($Usuario->getEmail(),1);
 
-        $this->objPesquisadorView->retornaLogin( $retornoDAO );
+
+        return $retornoDAO;
+        //$this->objPesquisadorView->retornaLogin( $retornoDAO );
 
     }
 
