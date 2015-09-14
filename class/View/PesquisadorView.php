@@ -11,6 +11,11 @@ include("../Controller/PesquisadorController.php");
 
 class PesquisadorView{
 
+    private $controller;
+
+    public  function __construct(){
+        $this->controller= new PesquisadorController();
+    }
 
     public function exibeStatusInserido($param){
 
@@ -20,16 +25,24 @@ class PesquisadorView{
 
     public function logar(){
         //1 = professor, 0 = estudantes, -1 = erro
-        $controller = new PesquisadorController();
 
-        echo $controller->logar();
+        echo $this->controller->logar();
     }
 
     public  function inserir(){
 
-        $controller = new PesquisadorController();
+        echo $this->controller->inserir();
+    }
 
-        echo $controller->inserir();
+    public function atualizar(){
+        echo $this->controller->atualizar();
+    }
+
+    public  function obterDados(){
+
+        $param = $this->controller->buscar();
+        echo json_encode($param);
+
     }
 
 } 

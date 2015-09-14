@@ -21,15 +21,15 @@ class LoginController{
         require_once($this->usuarioClass);
 
         //Url View
-        $this->usuarioView = "../View/UsuarioView.php";
-        require_once($this->usuarioView);
+       // $this->usuarioView = "../View/UsuarioView.php";
+       // require_once($this->usuarioView);
 
         //Url DAO
         $this->usuarioDAO = "../Model/DAO/UsuarioDAO.php";
         require_once($this->usuarioDAO);
 
         //Instaciando o objeto View
-        $this->objUsuarioView = new UsuarioView();
+        //$this->objUsuarioView = new UsuarioView();
     }
 
     public function logar(){

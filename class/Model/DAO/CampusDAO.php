@@ -25,16 +25,22 @@ class CampusDAO {
 
         $query = "select * from sicapp_campus";
 
-        $l= 0;
-        $fetch = [[],[]];
-
         $result = mysql_query($query) or die(mysql_error());
 
-        while ($row = mysql_fetch_array($result)) {
-            $fetch[$l][0] = $row[0];
-            $fetch[$l++][1] = $row[1];
+        if(!$result){
+            echo "erro ao obter dados...";
+        }else{
+
+            $fetch = array();
+
+            while ($row = mysql_fetch_row($result)){
+                $rowAux = [$row[0], utf8_encode($row[1])];
+                array_push($fetch,$rowAux);
+
+            }
+
+            return $fetch;
         }
-        return $fetch;
 
     }
 

@@ -31,7 +31,7 @@ class PesquisadorController {
         require_once($this->pesquisadorDAO);
 
         //Instaciando o objeto View
-        $this->objPesquisadorView = new PesquisadorView();
+        //$this->objPesquisadorView = new PesquisadorView();
     }
 
 
@@ -59,25 +59,42 @@ class PesquisadorController {
 
     }
 
-    public function alterarPesquisador(){
+    public function atualizar(){
+        Conexao::Conectar();
+
+        $novoPesquisador = new Pesquisador();
+
+        $session = new SessionController();
+        $novoPesquisador->setId($session->getUserSession());
+        $novoPesquisador->setNome( isset($_POST["nome"])?$_POST["nome"]:"" );
+        $novoPesquisador->setCPF(  isset($_POST["cpf"])?$_POST["cpf"]:"" );
+        $novoPesquisador->setEnderecoLattes( isset($_POST["lattes"])?$_POST["lattes"]:"" );
+        $novoPesquisador->setEmail( isset($_POST["email"])?$_POST["email"]:"" );
+        $novoPesquisador->setSenha( isset($_POST["senha"])?$_POST["senha"]:"" );
+        $novoPesquisador->setSIAPE( isset($_POST["siape"])?$_POST["siape"]:"" );
+        $novoPesquisador->setTitulacao( isset($_POST["titulacao"])?$_POST["titulacao"]:"" );
+        $novoPesquisador->setCampus( isset($_POST["campus"])?$_POST["campus"]:"" );
+
+        $pesquisadorDao = new PesquisadorDAO($novoPesquisador);
+
+        $retornoDAO = $pesquisadorDao->atualizar();
+
+        return $retornoDAO;
 
     }
 
-    public function deletePesquisador(){
+    public function deletar(){
 
     }
 
-    public function obterDadosPesquisador(){
+    public function buscar(){
         Conexao::Conectar();
 
         $novoPesquisador = new Pesquisador();
         $session = new SessionController();
         $novoPesquisador->setId($session->getUserSession());
-
         $pesquisadorDao = new PesquisadorDAO($novoPesquisador);
-
         $retornoDAO = $pesquisadorDao->buscar();
-
 
         return $retornoDAO;
         //$this->objPesquisadorView->exibeStatusInserido( $retornoDAO );

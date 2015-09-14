@@ -22,15 +22,15 @@ class EstudanteController {
         require_once($this->estudanteClass);
 
         //Url View
-        $this->estudanteView = "../View/EstudanteView.php";
-        require_once($this->estudanteView);
+        //$this->estudanteView = "../View/EstudanteView.php";
+        //require_once($this->estudanteView);
 
         //Url DAO
         $this->estudanteDAO = "../Model/DAO/EstudanteDAO.php";
         require_once($this->estudanteDAO);
 
         //Instaciando o objeto View
-        $this->objEstudanteView = new EstudanteView();
+        //$this->objEstudanteView = new EstudanteView();
     }
 
 

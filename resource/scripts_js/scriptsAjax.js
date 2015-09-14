@@ -40,7 +40,7 @@ $("#lu_form_pes").validate({
 });
 
 //cadastro pesquisador
-$("#cp_form").validate({
+$("#cp_form_pes").validate({
 
     submitHandler: function(form) {
 
@@ -82,15 +82,15 @@ $("#ep_form_pes").validate({
 
         $.ajax({
             type: "POST",
-            url: "class/Controller/Dispatcher2.php?classePesquisador=&acao=atualizar",
+            url: "../class/Controller/Dispatcher2.php?classe=Pesquisador&acao=atualizar",
             data: dados,
             success: function(data)
             {
-
+                console.log(data);
             },
             error: function(data)
             {
-
+                console.log("erro");
             }
         });
 
@@ -108,51 +108,55 @@ $("#ep_form_pes").validate({
  * @version 1.0
  * @author Luis Araujo
  */
-$("#drop_titulacao").click(function(){
+$("#drop_titulacao_bt").click(function(){
 
     $.ajax({
         type: "POST",
-        url: "class/Controller/Dispatcher2.php?classe=Titulacao&acao=listar",
+        url: "/SiCaPP-IFBA/class/Controller/Dispatcher2.php?classe=Titulacao&acao=listar",
+        dataType: 'json',
         success: function(data)
         {
-            $("#dorp_escolaridade").html("");
+            str = "";
             for(var i = 0; i < data.length; i++){
-                $("#dorp_escolaridade").html(data);
+                str += "<li><a id='titu"+data[i][0]+"' href='#' value='"+data[i][0]+"'>"+data[i][1]+"</a></li>";
             }
 
-            $("#dorp_escolaridade > li > a").click(function(){
-                $("#placeholder_escolaridade").html($(this).html());
+            $("#drop_titulacao").html(str);
+
+            $("#drop_titulacao > li > a").click(function(){
+                $("#placeholder_titulacao").html($(this).html());
                 $("#cp_titulacao").attr("value",$(this).attr("value"));
             });
         },
         error: function(data)
         {
-            console.log("erro");
+            console.log(data);
         }
     });
 
 
 });
 
-
-
 /**
- * @descripition Função obtem campus cadastradas no banco
+ * @descripition Função obtem campus cadastradas no banco [amb_pes]
  * @version 1.0
  * @author Luis Araujo
  */
-$("#drop_campus").click(function(){
+$("#drop_campus_bt").click(function(){
     $.ajax({
         type: "POST",
-        url: "class/Controller/Dispatcher2.php?classe=Campus&acao=listar",
+        url: "/SiCaPP-IFBA/class/Controller/Dispatcher2.php?classe=Campus&acao=listar",
+        dataType: 'json',
         success: function(data)
         {
-            $("#dorp_campus").html("");
-            for(var i = 0; i < data.length; i++){
-                $("#dorp_campus").html(data);
-            }
 
-            $("#dorp_campus > li > a").click(function(){
+            str = "";
+            for(var i = 0; i < data.length; i++){
+                str += "<li><a href='#' value='"+data[i][0]+"'>"+data[i][1]+"</a></li>";
+            }
+            $("#drop_campus").html(str);
+
+            $("#drop_campus > li > a").click(function(){
                 $("#placeholder_campus").html($(this).html());
                 $("#cp_campus").attr("value",$(this).attr("value"));
             });
@@ -165,6 +169,40 @@ $("#drop_campus").click(function(){
 
 });
 
+/**
+ * @descripition Função obtem campus cadastradas no banco [amb_pes]
+ * @version 1.0
+ * @author Luis Araujo
+ */
+$("#tab_meu_perfil_pes").click(function(){
+
+    $.ajax({
+        type: "POST",
+        url: "../class/Controller/Dispatcher2.php?classe=Pesquisador&acao=obterDados",
+        dataType: 'json',
+        success: function(data)
+        {
+           $("#perfil_nome").html(data["nome"]);
+           $("#ep-nome").val(data["nome"]);
+           $("#ep-cpf").val(data["cpf"]);
+           $("#ep-email").val(data["email"]);
+           $("#ep-lattes").val(data["lattes"]);
+           $("#ep-siape").val(data["siape"]);
+           //titulacao
+           $("#placeholder_titulacao").html(data["titulacaonome"]);
+           $("#cp_titulacao").attr("value",data["titulacoes_idtitulacoes"]);
+           //campus
+           $("#placeholder_campus").html(data["campusnome"]);
+           $("#cp_campus").attr("value",data["sicapp_campus_idcampus"]);
+
+        },
+        error: function(data)
+        {
+            console.log("erro");
+        }
+    });
+
+});
 
 //end ready
 });

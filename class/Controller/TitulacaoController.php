@@ -20,27 +20,27 @@ class TitulacaoController {
         require_once($this->titulacaoClass);
 
         //Url View
-        $this->titulacaoView = "../View/TitulacaoView.php";
-        require_once($this->titulacaoView);
+        //$this->titulacaoView = "../View/TitulacaoView.php";
+        //require_once($this->titulacaoView);
 
         //Url DAO
         $this->titulacaoDAO = "../Model/DAO/TitulacaoDAO.php";
         require_once($this->titulacaoDAO);
 
         //Instaciando o objeto View
-        $this->objTitulacaoView = new TitulacaoView();
+        //$this->objTitulacaoView = new TitulacaoView();
     }
 
 
     public function buscarTodos(){
 
-        Conexao::Conectar();
+         Conexao::Conectar();
 
         $titulacaoDao = new TitulacaoDAO();
         $retornoDAO = $titulacaoDao->buscarTodos();
 
         return $retornoDAO;
-        //$this->objTitulacaoView->exibeTodasTitulacoes( $retornoDAO );
+
 
     }
 } 

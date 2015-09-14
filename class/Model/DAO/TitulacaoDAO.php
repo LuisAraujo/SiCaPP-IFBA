@@ -7,10 +7,10 @@
  */
 
 class TitulacaoDAO {
-    public $titulacao;
+    //public $titulacao;
 
-    public  function __construct($titulacao=""){
-        $this->titulacao = $titulacao;
+    public  function __construct(){
+
     }
 
     public function  inserir(){
@@ -22,18 +22,26 @@ class TitulacaoDAO {
 
     public function  buscarTodos(){
 
-        $query = "select * from sicapp_titulacoes";
 
-        $l= 0;
-        $fetch = [[],[]];
+
+        $query = "select idtitulacoes, nome from sicapp_titulacoes";
 
         $result = mysql_query($query) or die(mysql_error());
 
-        while ($row = mysql_fetch_array($result)) {
-          $fetch[$l][0] = $row[0];
-          $fetch[$l++][1] = $row[1];
-        }
-        return $fetch;
+       if(!$result){
+            echo "erro ao obter dados...";
+       }else{
+
+           $fetch = array();
+
+           while ($row = mysql_fetch_row($result)){
+               $rowAux = [$row[0], utf8_encode($row[1])];
+               array_push($fetch,$rowAux);
+
+           }
+
+           return $fetch;
+       }
 
     }
 

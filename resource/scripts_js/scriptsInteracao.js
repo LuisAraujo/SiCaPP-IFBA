@@ -40,12 +40,30 @@ redireciona = function(param){
 ativarImputsFormEdiatarPerfil = function(param){
     if(param){
         //ativa inputs
-        $("[id|='ep']").removeAttr("disabled");
+        $("#ep-cpf").removeAttr("disabled");
+        $("#ep-email").removeAttr("disabled");
+        $("#ep-lattes").removeAttr("disabled");
+        $("#ep-senha").removeAttr("disabled");
+        $("#ep-siape").removeAttr("disabled");
+        $("#drop_titulacao_bt").removeAttr("disabled");
+        $("#drop_campus_bt").removeAttr("disabled");
+        $("#submit_cp").removeAttr("disabled");
+
+
+
         //ativa edição de foto
         $("#ct-foto").attr("editable",true);
     }else{
         //desativa inputs
-        $("[id|='ep']").attr("disabled","");
+        $("#ep-cpf").attr("disabled","");
+        $("#ep-email").attr("disabled","");
+        $("#ep-lattes").attr("disabled","");
+        $("#ep-senha").attr("disabled","");
+        $("#ep-siape").attr("disabled","");
+        $("#drop_titulacao_bt").attr("disabled","");
+        $("#drop_campus_bt").attr("disabled","");
+        $("#submit_cp").attr("disabled","");
+
         //desativa edição de foto
         $("#ct-foto").attr("editable",false);
         $("#img-foto-perfil").css('opacity','1');

@@ -183,7 +183,7 @@
                             <div class="panel-heading">Cadastro Pesquisador | SICAPP</div>
                             <div class="panel-body">
                             <!-- form cadastro pesquisador (cp) -->
-                            <form id="cp_form" role="form" method="post" action="" class="bs-example bs-example-form">
+                            <form id="cp_form_pes" role="form" method="post" action="" class="bs-example bs-example-form">
                                 <!-- nome -->
                                 <div class="input-group" id="cp_nome_div">
                                     <input  name="nome" type="text" class="form-control" id="cp_nome" placeholder="Seu Nome*" required>
@@ -236,10 +236,10 @@
                                 <!-- titulação -->
                                 <div class="btn-group" id="cp_titulacao_div" style="width: 100%">
                                     <input id="cp_titulacao" name="titulacao" value=""  style="display: none" />
-                                    <button id="drop_titulacao" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
-                                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_escolaridade">Titulacao*</span> <span class="caret"></span>
+                                    <button id="drop_titulacao_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_titulacao">Titulacao*</span> <span class="caret"></span>
                                     </button>
-                                    <ul id="dorp_escolaridade" class="dropdown-menu">
+                                    <ul id="drop_titulacao" class="dropdown-menu">
 
                                     </ul>
                                 </div>
@@ -248,10 +248,10 @@
                                 <!-- campus -->
                                 <div class="btn-group" id="cp_campus_div" style="width: 100%">
                                     <input id="cp_campus" name="campus" value=""  style="display: none">
-                                    <button id="drop_campus" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                    <button id="drop_campus_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
                                         <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_campus">Campus*</span> <span class="caret"></span>
                                     </button>
-                                    <ul id="dorp_campus" class="dropdown-menu">
+                                    <ul id="drop_campus" class="dropdown-menu">
                                     </ul>
                                 </div>
 

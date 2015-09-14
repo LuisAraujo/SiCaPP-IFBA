@@ -55,9 +55,9 @@ class PesquisadorDAO extends UsuarioDAO implements Persistente{
      */
     public function atualizar()
     {
-        $query = "UPDATE sicapp_pesquisadores SET   cpf = ".$this->pesquisador->getCPF().",nome =".$this->pesquisador->getNome().",lattes =".$this->pesquisador->getEnderecoLattes().",
-        email =". $this->pesquisador->getEmail() .", senha = ". $this->pesquisador->getSenha().",siape = ".$this->pesquisador->getSIAPE().",titulacoes_idtitulacoes =". $this->pesquisador->getTituacao().
-        "WHERE sicapp_pesquisadores.idpesquisadores = ".$this->pesquisador->getId().";";
+        $query = "UPDATE sicapp_pesquisadores SET  cpf = '".$this->pesquisador->getCPF()."',nome ='".$this->pesquisador->getNome()."',lattes ='".$this->pesquisador->getEnderecoLattes()."',
+        email ='". $this->pesquisador->getEmail() ."', senha = '". $this->pesquisador->getSenha()."',siape = '".$this->pesquisador->getSIAPE()."',titulacoes_idtitulacoes ='". $this->pesquisador->getTitulacao().
+        "' WHERE sicapp_pesquisadores.email = '".$this->pesquisador->getId()."';";
 
         $resp = mysql_query($query) or die(mysql_error());
 
@@ -65,17 +65,24 @@ class PesquisadorDAO extends UsuarioDAO implements Persistente{
     }
 
     public function buscar(){
-        $query = "SELECT *   FROM sicapp_pesquisadores WHERE sicapp_pesquisadores.idpesquisadores = ".$this->pesquisador->getId().";";
+        $query = "SELECT p.idpesquisadores, p.nome, p.cpf, p.lattes, p.email, p.siape, p.sicapp_campus_idcampus,";
+        $query .=" p.titulacoes_idtitulacoes, t.nome as titulacaonome, c.campus as campusnome FROM sicapp_pesquisadores p";
+        $query .=" inner join sicapp_titulacoes t on t.idtitulacoes = p.titulacoes_idtitulacoes inner join sicapp_campus c";
+        $query .=" on c.idcampus = p.sicapp_campus_idcampus  WHERE p.email = '".$this->pesquisador->getId()."';";
 
+        $result = mysql_query($query) or die(mysql_error());
 
+        $fetch = mysql_fetch_assoc($result);
+
+        return $fetch;
     }
 
 
     public function logar(){
 
-        $sql="select count(*) from sicapp_pesquisadores where senha ='". $this->pesquisador->getSenha()."' and email='".$this->pesquisador->getEmail()."'";
+        $query="select count(*) from sicapp_pesquisadores where senha ='". $this->pesquisador->getSenha()."' and email='".$this->pesquisador->getEmail()."'";
 
-        $result = mysql_query($sql) or die(mysql_error());
+        $result = mysql_query($query) or die(mysql_error());
 
         $fetch = mysql_fetch_row($result);
         //pesquisador

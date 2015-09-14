@@ -21,15 +21,15 @@ class CampusController {
         require_once($this->campusClass);
 
         //Url View
-        $this->campusView = "../View/CampusView.php";
-        require_once($this->campusView);
+        //$this->campusView = "../View/CampusView.php";
+        //require_once($this->campusView);
 
         //Url DAO
         $this->campusDAO = "../Model/DAO/CampusDAO.php";
         require_once($this->campusDAO);
 
         //Instaciando o objeto View
-        $this->objCampusView = new CampusView();
+        //$this->objCampusView = new CampusView();
     }
 
 

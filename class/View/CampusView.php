@@ -8,6 +8,12 @@
 
 include("../Controller/CampusController.php");
 class CampusView {
+    private $controller;
+
+    public  function __construct(){
+        $this->controller = new CampusController();
+    }
+
 
     public function exibeCampus($param){
 
@@ -19,18 +25,8 @@ class CampusView {
 
     public function listar(){
 
-        $controller = new CampusController();
-
-        $param =  $controller->buscarTodos();
-
-        $l =0;
-        $linha = [];
-
-        for($j = 0; $j < count($param); $j++)
-            $linha[$l++] ="<li><a href='#' value='".$param[$j][0]."'>".$param[$j][1]."</a></li>";
-
-        for($i = 0; $i < count($linha); $i++)
-            echo utf8_encode ($linha[$i]);
+        $param = $this->controller->buscarTodos();
+        echo json_encode($param);
 
     }
 
