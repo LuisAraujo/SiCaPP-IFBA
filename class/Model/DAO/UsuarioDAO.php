@@ -23,7 +23,7 @@ class UsuarioDAO{
 
     public function logar(){
 
-         $sql="select eprofessor from sicapp_usuarios where senha ='". $this->usuario->getSenha()."' and email='".$this->usuario->getEmail()."'";
+         $sql="select count(*) from sicapp_usuarios where senha ='". $this->usuario->getSenha()."' and email='".$this->usuario->getEmail()."'";
 
          $result = mysql_query($sql) or die(mysql_error());
 

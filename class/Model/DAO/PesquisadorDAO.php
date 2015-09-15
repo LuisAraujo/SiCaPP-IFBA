@@ -56,7 +56,7 @@ class PesquisadorDAO extends UsuarioDAO implements Persistente{
     public function atualizar()
     {
         $query = "UPDATE sicapp_pesquisadores SET  cpf = '".$this->pesquisador->getCPF()."',nome ='".$this->pesquisador->getNome()."',lattes ='".$this->pesquisador->getEnderecoLattes()."',
-        email ='". $this->pesquisador->getEmail() ."', senha = '". $this->pesquisador->getSenha()."',siape = '".$this->pesquisador->getSIAPE()."',titulacoes_idtitulacoes ='". $this->pesquisador->getTitulacao().
+        email ='". $this->pesquisador->getEmail() ."',siape = '".$this->pesquisador->getSIAPE()."',titulacoes_idtitulacoes ='". $this->pesquisador->getTitulacao().
         "' WHERE sicapp_pesquisadores.email = '".$this->pesquisador->getId()."';";
 
         $resp = mysql_query($query) or die(mysql_error());
@@ -73,6 +73,10 @@ class PesquisadorDAO extends UsuarioDAO implements Persistente{
         $result = mysql_query($query) or die(mysql_error());
 
         $fetch = mysql_fetch_assoc($result);
+
+        $fetch["nome"] =  utf8_encode($fetch["nome"]);
+        $fetch["titulacaonome"] =  utf8_encode($fetch["titulacaonome"]);
+        $fetch["campusnome"] =  utf8_encode($fetch["campusnome"]);
 
         return $fetch;
     }
@@ -94,9 +98,6 @@ class PesquisadorDAO extends UsuarioDAO implements Persistente{
         //nao encontrou
         else
             return -1;
-
-
-
 
     }
 

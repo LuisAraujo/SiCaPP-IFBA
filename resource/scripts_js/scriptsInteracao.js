@@ -27,7 +27,7 @@ function Vector2(a, b) {
 }
 
 /**
- * @descriprion Função de redirecionamento de página usada no login
+ * @descriprion Função de redirecionamento de página específica
  * @param param CONST {string}
  * @version 1.0
  * @author Luis Araujo
@@ -36,10 +36,17 @@ redireciona = function(param){
     location.href=param;
 }
 
-
-ativarImputsFormEdiatarPerfil = function(param){
+/**
+* @descriprion função ativa e desativa inputs do formulario
+* de edição do perfil de pesquisador
+* @param param bool
+* @version 1.0
+* @author Luis Araujo
+*/
+ativaFormEpPes = function(param){
     if(param){
         //ativa inputs
+        $("#ep-nome").removeAttr("disabled");
         $("#ep-cpf").removeAttr("disabled");
         $("#ep-email").removeAttr("disabled");
         $("#ep-lattes").removeAttr("disabled");
@@ -48,13 +55,13 @@ ativarImputsFormEdiatarPerfil = function(param){
         $("#drop_titulacao_bt").removeAttr("disabled");
         $("#drop_campus_bt").removeAttr("disabled");
         $("#submit_cp").removeAttr("disabled");
-
-
-
+        $("#bt_editaperfil").attr("disabled", "");
+        $("#bt_editasenha").attr("disabled", "");
         //ativa edição de foto
         $("#ct-foto").attr("editable",true);
     }else{
         //desativa inputs
+        $("#ep-nome").attr("disabled","");
         $("#ep-cpf").attr("disabled","");
         $("#ep-email").attr("disabled","");
         $("#ep-lattes").attr("disabled","");
@@ -63,10 +70,14 @@ ativarImputsFormEdiatarPerfil = function(param){
         $("#drop_titulacao_bt").attr("disabled","");
         $("#drop_campus_bt").attr("disabled","");
         $("#submit_cp").attr("disabled","");
-
+        $("#bt_editaperfil").removeAttr("disabled");
+        $("#bt_editasenha").removeAttr("disabled");
         //desativa edição de foto
         $("#ct-foto").attr("editable",false);
         $("#img-foto-perfil").css('opacity','1');
+
+
+
 
 
     }
@@ -80,25 +91,15 @@ $(document).ready(function(){
         delogaUsuario();
         console.log("sair1");
     });
-
+    /**
+     * @descripition função ativa formulario de edição de pesquisador
+     *
+     * @version 1.0
+     * @author Luis Araujo
+     */
     $("#bt_editaperfil").click(
         function(){
-            if( $(this).attr("acao") == "submit_ep" ){
-                 ativarImputsFormEdiatarPerfil(false);
-                 $(this).attr("acao", "edita_ep");
-                 $(this).addClass("label-success");
-                $(this).removeClass("label-warning");
-                 $("#label-bt-editaperfil").html("Editar Perfil");
-            }else{
-                ativarImputsFormEdiatarPerfil(true);
-                $(this).attr("acao", "submit_ep");
-                $(this).removeClass("label-success");
-                $(this).addClass("label-warning");
-                $("#label-bt-editaperfil").html("Atualizar Perfil");
-
-                //ENVIAR DADOS!!!
-                // forçar submit de ep_form
-            }
+            ativaFormEpPes(true);
         });
 
 

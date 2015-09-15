@@ -6,6 +6,8 @@
  * @versio 1.0
  * @package Controller/
  */
+
+//OBSOLETA
 require_once("SessionController.php");
 class LoginController{
 

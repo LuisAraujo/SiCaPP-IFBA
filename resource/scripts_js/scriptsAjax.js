@@ -1,12 +1,13 @@
-/**
- * @descripition Função para login de usuário
- * @version 1.0
- * @author Luis Araujo
- */
 
 $(document).ready(function(){
 
-//login usuário
+/**
+ * @descripition função realiza o login de pesquisador
+ * retorna sucesso em caso de cadastro e erro em caso
+ * de falhs
+ * @version 1.0
+ * @author Luis Araujo
+ */
 $("#lu_form_pes").validate({
 
     submitHandler: function(form) {
@@ -39,7 +40,13 @@ $("#lu_form_pes").validate({
 
 });
 
-//cadastro pesquisador
+/**
+ * @descripition função realiza o cadastros de pesquisador
+ * retorna sucesso em caso de cadastro e erro em caso
+ * de falha
+ * @version 1.0
+ * @author Luis Araujo
+ */
 $("#cp_form_pes").validate({
 
     submitHandler: function(form) {
@@ -74,8 +81,15 @@ $("#cp_form_pes").validate({
 
 
 
-//edita perfil
+/**
+ * @descripition função realiza a atualizado de dados do pesquisador
+ * retorna sucesso em caso de cadastro e erro em caso
+ * de falhs
+ * @version 1.0
+ * @author Luis Araujo
+ */
 $("#ep_form_pes").validate({
+
     submitHandler: function(form) {
 
         var dados = $(form).serialize();
@@ -87,6 +101,11 @@ $("#ep_form_pes").validate({
             success: function(data)
             {
                 console.log(data);
+
+
+                ativaFormEpPes(false);
+                $("#tab_meu_perfil_pes").trigger('click');
+
             },
             error: function(data)
             {
@@ -104,7 +123,7 @@ $("#ep_form_pes").validate({
 
 
 /**
- * @descripition Função obtem escolaridades cadastradas no banco
+ * @descripition Função obtem lista de titulacoes cadastradas na base de dados
  * @version 1.0
  * @author Luis Araujo
  */
@@ -204,7 +223,7 @@ $("#tab_meu_perfil_pes").click(function(){
 
 });
 
-//end ready
+//END READY
 });
 
 /**
@@ -285,7 +304,7 @@ delogaUsuario = function(){
 
 
 /**
- * @descripition Pega lista de editais [edital nao implementado]
+ * @descripition Obtem lista de editais [edital nao implementado]
  * @version 1.0
  * @author Silas Ribeiro
  */
@@ -294,7 +313,7 @@ var getEditais = function(){
 }
 
 /**
- * @descripition Pega lista de pesquisadores [listar nao implementado]
+ * @descripition Obtem lista de pesquisadores [listar nao implementado]
  * @version 1.0
  * @author Silas Ribeiro
  */

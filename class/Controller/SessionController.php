@@ -33,5 +33,6 @@ class SessionController{
 
     public function destroySession(){
         session_destroy();
+        return;
     }
 }
