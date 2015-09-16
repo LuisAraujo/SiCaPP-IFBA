@@ -119,5 +119,25 @@ $(document).ready(function(){
         $("#ep-foto").trigger("click");
     });
 
+    $("#bt_cadastrarprojeto").click(function(){
+        $("#tab_cadastrarprojeto").trigger("click");
+        //chamar ajax com dados
+    });
+
+    $(".bt_visualizarprojeto").click(function(){
+        $("#tab_visualizarprojeto").trigger("click");
+        //chamar ajax com dados
+    });
+
+    $(".bt_editarprojeto").click(function(){
+        $("#tab_editarprojeto").trigger("click");
+        //chamar ajax com dados
+    });
+
+    //data picker inicio
+    $("#cadproj_data_div div").datepicker({
+        language: "pt-BR",
+        autoclose: true
+    });
 
 });

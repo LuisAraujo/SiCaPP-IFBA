@@ -88,7 +88,7 @@ $("#cp_form_pes").validate({
  * @version 1.0
  * @author Luis Araujo
  */
-$("#ep_form_pes").validate({
+$("#form_editaperfil_pes").validate({
 
     submitHandler: function(form) {
 

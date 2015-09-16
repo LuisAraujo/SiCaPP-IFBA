@@ -32,7 +32,7 @@ class PesquisadorDAO extends UsuarioDAO implements Persistente{
 
     /**
      * @overloping
-     * @description Insere elemento a partir de usuario e filhos
+     * @description Insere usuário pesquisador
      * @return mixed
      */
     public function inserir()
@@ -58,6 +58,15 @@ class PesquisadorDAO extends UsuarioDAO implements Persistente{
         $query = "UPDATE sicapp_pesquisadores SET  cpf = '".$this->pesquisador->getCPF()."',nome ='".$this->pesquisador->getNome()."',lattes ='".$this->pesquisador->getEnderecoLattes()."',
         email ='". $this->pesquisador->getEmail() ."',siape = '".$this->pesquisador->getSIAPE()."',titulacoes_idtitulacoes ='". $this->pesquisador->getTitulacao().
         "' WHERE sicapp_pesquisadores.email = '".$this->pesquisador->getId()."';";
+
+        $resp = mysql_query($query) or die(mysql_error());
+
+        return $resp;
+    }
+
+    public function atualizarSenha()
+    {
+        $query = "UPDATE sicapp_pesquisadores SET  senha = '".$this->pesquisador->getSenha()."';";
 
         $resp = mysql_query($query) or die(mysql_error());
 

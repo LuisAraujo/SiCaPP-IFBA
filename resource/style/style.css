@@ -120,3 +120,18 @@ article{
     height: 200px;
     width: 200px
 }
+
+
+#form_cadastro_projeto input{
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+#form_cadastro_projeto .input-group-addon{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}

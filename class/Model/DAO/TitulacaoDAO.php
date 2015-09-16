@@ -6,6 +6,7 @@
  * Time: 23:08
  */
 
+
 class TitulacaoDAO {
 
     private  $titulacao;

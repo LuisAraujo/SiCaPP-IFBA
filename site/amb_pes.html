@@ -17,6 +17,9 @@
 
     <link href="../resource/style/dashboard.css" rel="stylesheet">
 
+    <!-- calendário datapicker -->
+    <link id="bsdp-css" href="../resource/style/bootstrap-datepicker3.css" rel="stylesheet">
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]>
     <script src="../resource/scripts_js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -63,6 +66,11 @@
                         <li><a id="tab_meu_perfil_pes" href="#ct-perfil"  data-toggle="tab">Meu Perfil</a></li>
                         <li><a href="#ct-editais"  data-toggle="tab">Editais</a></li>
                         <li><a id="bt_sair" href="">Sair</a></li>
+                        <!--- essas tabs estao ocultas, sendo chamadas como gatilho por seus respectivos acionadores-->
+                        <li style="display: none"><a id="tab_cadastrarprojeto" href="#ct-cadastraprojetos"  data-toggle="tab" ></a></li>
+                        <li style="display: none"><a id="tab_visualizarprojeto" href="#ct-visualizaprojetos"  data-toggle="tab" ></a></li>
+                        <li style="display: none"><a id="tab_editarprojeto" href="#ct-editaprojetos"  data-toggle="tab" ></a></li>
+
                     </ul>
                 </div>
             </div>
@@ -80,7 +88,7 @@
              <!-- Coluna conteiner de botão novo projeto -->
              <div class="col-md-4" >
                  <h4 style="position: relative; top:-5px" >
-                 <span class="btn label label-success" style="padding: 7px">
+                 <span id="bt_cadastrarprojeto" class="btn label label-success" style="padding: 7px">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                      Criar Novo Projeto
                  </span>
@@ -118,8 +126,8 @@
                  <td class="status-ok"></td>
 
                  <td>
-                     <span class="btn label label-success">Visualizar</span>
-                     <span class="btn label label-warning">Editar</span>
+                     <span class="bt_visualizarprojeto  btn label label-success">Visualizar</span>
+                     <span class="bt_editarprojeto btn label label-warning">Editar</span>
                      <span class="btn label label-danger">Excluir</span>
                  </td>
              </tr>
@@ -130,8 +138,8 @@
                  <td class="status-ok"></td>
 
                  <td>
-                     <span class="btn label label-success">Visualizar</span>
-                     <span class="btn label label-warning">Editar</span>
+                     <span class="bt_visualizarprojeto  btn label label-success">Visualizar</span>
+                     <span class="bt_editarprojeto btn label label-warning">Editar</span>
                      <span class="btn label label-danger">Excluir</span>
                  </td>
              </tr>
@@ -142,8 +150,8 @@
                  <td class="status-pendente"></td>
 
                  <td>
-                     <span class="btn label label-success">Visualizar</span>
-                     <span class="btn label label-warning">Editar</span>
+                     <span class="bt_visualizarprojeto  btn label label-success">Visualizar</span>
+                     <span class="bt_editarprojeto btn label label-warning">Editar</span>
                      <span class="btn label label-danger">Excluir</span>
                  </td>
              </tr>
@@ -154,8 +162,8 @@
                  <td class="status-concluido"></td>
 
                  <td>
-                     <span class="btn label label-success">Visualizar</span>
-                     <span class="btn label label-warning">Editar</span>
+                     <span class="bt_visualizarprojeto btn label label-success">Visualizar</span>
+                     <span class="bt_editarprojeto btn label label-warning">Editar</span>
                      <span class="btn label label-danger">Excluir</span>
                  </td>
              </tr>
@@ -172,7 +180,7 @@
 </div>
 
 
-
+<!-- OUTROS PROJETOS -->
 <div id="ct-outrosprojetos" class="container tab-pane">
 
     <div id="row-outrosprojetos" class="row-fluid" >
@@ -211,7 +219,7 @@
                         <td class="status-ok"></td>
 
                         <td>
-                            <span class="btn label label-success">Visualizar</span>
+                            <span  class="btn label label-success">Visualizar</span>
                             <span class="btn label label-warning">Editar</span>
                         </td>
                     </tr>
@@ -260,10 +268,10 @@
       <!-- ct-outrosprojetos -->
 </div>
 
-
+<!-- EDITAR PERFIL -->
 <div id="ct-perfil" class="container tab-pane" style="margin-bottom: 30px">
 
-    <form id="ep_form_pes" role="form" method="post" enctype="multipart/form-data" action="" class="bs-example bs-example-form">
+    <form id="form_editaperfil_pes" role="form" method="post" enctype="multipart/form-data" action="" class="bs-example bs-example-form">
 
     <div id="row-perfil" class="row-fluid" >
         <div id="col-foto" class="col-md-3 col-lg-pull-2" >
@@ -344,13 +352,6 @@
                         <input  name="siape" type="text" class="form-control" id="ep-siape" placeholder="156380" required disabled>
                     </div>
 
-                <!--
-                  <div>
-                  <h4> SENHA </h4>
-                  <input  name="senha" type="password" class="form-control" id="ep-senha" placeholder="****" required disabled>
-                  </div>
-                -->
-
                 <button id="submit_cp" type="submit" class="btn btn-warning" disabled>
                     <h5>
                     <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
@@ -363,6 +364,7 @@
     </form>
 </div>
 
+ <!-- EDITAIS -->
 <div id="ct-editais" class="container tab-pane">
 
     <div id="row-editais" class="row-fluid" >
@@ -384,9 +386,305 @@
 
 
 
+ <div id="ct-cadastraprojetos" class="container tab-pane">
+
+     <div id="row-cadastraprojetos" class="row-fluid" >
+
+         <div class="col-md-8 col-md-offset-2" >
+            <div class="panel  panel-success">
+               <div class="panel-heading">Cadastro Projeto</div>
+                 <div class="panel-body">
+                     <!-- form cadastro pesquisador (cp) -->
+                     <form id="form_cadastro_projeto" role="form" method="post" action="" class="bs-example bs-example-form">
 
 
 
+                         <h3><span class="label label-success">Dados do Projeto</span></h3>
+
+
+                         <!-- titulo -->
+
+                         <div class="input-group" id="cadproj_titulo_div">
+                            <input  name="nome" type="text" class="form-control" id="cadproj_titulo" placeholder="Informe o título do seu projeto*" required>
+                             <span class="input-group-addon" >
+                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                             </span>
+                         </div>
+
+                         <!-- linha de pesquisa -->
+
+                         <div class="input-group" id="cadproj_linhapesq_div">
+
+                             <input  name="nome" type="text" class="form-control" id="cadproj_linhapesq" placeholder="Informe a linha de pesquisa*" required>
+                             <span class="input-group-addon" >
+                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                             </span>
+                         </div>
+
+
+                         <!-- localde pesquisa -->
+
+                         <div class="input-group" id="cadproj_local_div">
+                             <input  name="nome" type="text" class="form-control" id="cadproj_local" placeholder="Informe o local em que a pesquisa se realizada*" required>
+                             <span class="input-group-addon" >
+                                 <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                             </span>
+                         </div>
+
+
+                         <!-- data inicio do projeto -->
+                         <div id="cadproj_data_div">
+                             <div class="input-group date">
+                                 <input id="cadproj_data_inicio" type="text" class="form-control" placeholder="Data de Início do projeto*">
+                                 <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i>
+                                 </span>
+                             </div>
+
+                             <div class="input-group date">
+                                 <input id="cadproj_datafim" type="text" class="form-control" placeholder="Data de Final do projeto*"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                             </div>
+
+                         </div>
+
+                         <div class="input-group" id="cadproj_introducao_div">
+
+                             <textarea class="form-control" rows="3" placeholder="Introdução do projeto"></textarea>
+
+                             <span class="input-group-addon" >
+                              <h4><span class="glyphicon glyphicon-file" aria-hidden="true"></span></h4>
+                             </span>
+                         </div>
+
+                         <div class="input-group" id="cadproj_objetivos_div">
+
+                             <textarea class="form-control" rows="3" placeholder="Objetivos do projeto"></textarea>
+
+                             <span class="input-group-addon" >
+                              <h4><span class="glyphicon glyphicon-list" aria-hidden="true"></span></h4>
+                             </span>
+                         </div>
+
+                         <div class="input-group" id="cadproj_metodologia_div">
+
+                             <textarea class="form-control" rows="3" placeholder="Metodologia utilizada"></textarea>
+
+                             <span class="input-group-addon" >
+                              <h4><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></h4>
+                             </span>
+                         </div>
+
+                         <div class="input-group" id="cadproj_resultados_div">
+
+                             <textarea class="form-control" rows="3" placeholder="Resultados obtidos"></textarea>
+
+                             <span class="input-group-addon" >
+                              <h4><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></h4>
+                             </span>
+                         </div>
+
+
+
+                         <!-- palavras chaves pesquisa -->
+
+                         <div class="input-group" id="cadproj_palavrachave_div">
+                             <input  name="nome" type="text" class="form-control" id="palavrachave_local" placeholder="Palavras-chaves: palavra, palavra, palavra " required>
+                             <span class="input-group-addon" >
+                                 <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+                             </span>
+                         </div>
+
+                         <!-- natureza -->
+                         <div class="btn-group" id="cadproj_natureza_div" style="width: 100%">
+                             <input id="cadproj_natureza" name="titulacao" value=""  style="display: none" />
+                             <button id="cadproj_drop_natureza_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                 <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_natureza">Natureza do Projeto*</span> <span class="caret"></span>
+                             </button>
+                             <ul id="cadproj_drop_natureza" class="dropdown-menu">
+                                 <li><a href="#">Teste 01</a></li>
+                                 <li><a href="#">Teste 02</a></li>
+                                 <li><a href="#">Teste 03</a></li>
+                                 <li><a href="#">Teste 04</a></li>
+                             </ul>
+                         </div>
+
+
+
+                         <!-- categoria -->
+                         <div class="btn-group" id="cadproj_categoria_div" style="width: 100%">
+                             <input id="cadproj_categoria" name="titulacao" value=""  style="display: none" />
+                             <button id="cadproj_drop_categoria_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                 <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_categoria">Categoria do Projeto*</span> <span class="caret"></span>
+                             </button>
+                             <ul id="cadproj_drop_categoria" class="dropdown-menu">
+                                 <li><a href="#">Teste 01</a></li>
+                                 <li><a href="#">Teste 02</a></li>
+                                 <li><a href="#">Teste 03</a></li>
+                                 <li><a href="#">Teste 04</a></li>
+                             </ul>
+                         </div>
+
+                         <!-- agencia -->
+                         <div class="btn-group" id="cadproj_agencia_div" style="width: 100%">
+                             <input id="cadproj_agencia" name="titulacao" value=""  style="display: none" />
+                             <button id="cadproj_drop_agencia_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                 <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_agencia">Agência Financiadora*</span> <span class="caret"></span>
+                             </button>
+                             <ul id="cadproj_drop_agencia" class="dropdown-menu">
+                                 <li><a href="#">Fapebs</a></li>
+                                 <li><a href="#">Capes</a></li>
+                                 <li><a href="#">Cnpq</a></li>
+                             </ul>
+                         </div>
+
+                         <!-- area -->
+                         <div class="btn-group" id="cadproj_area_div" style="width: 100%">
+                             <input id="cadproj_area" name="titulacao" value=""  style="display: none" />
+                             <button id="cadproj_drop_area_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                 <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_area">Área do Conhecimento*</span> <span class="caret"></span>
+                             </button>
+                             <ul id="cadproj_drop_area" class="dropdown-menu">
+                                 <li><a href="#">Ciências da Terra</a></li>
+                                 <li><a href="#">Ciências Humanas</a></li>
+                                 <li><a href="#">Saúde</a></li>
+                             </ul>
+                         </div>
+
+                         <!-- area -->
+                         <div class="btn-group" id="cadproj_subarea_div" style="width: 100%">
+                             <input id="cadproj_subarea" name="titulacao" value=""  style="display: none" />
+                             <button id="cadproj_drop_subarea_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                 <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_subarea">Subárea do Conhecimento*</span> <span class="caret"></span>
+                             </button>
+                             <ul id="cadproj_drop_subarea" class="dropdown-menu">
+                                 <li><a href="#">Ciências da Terra</a></li>
+                                 <li><a href="#">Ciências Humanas</a></li>
+                                 <li><a href="#">Saúde</a></li>
+                             </ul>
+                         </div>
+
+
+
+
+                         <!-- ORÇAMENTO -->
+                         <h3><span class="label label-success">Orçamento do Projeto</span></h3>
+
+
+
+
+
+                         <div class="input-group" id="cadproj_orca_materialpermanente_div">
+                             <input  name="nome" type="text" class="form-control" id="orca_materialpermanent" placeholder=" Material Permanente*" required>
+                             <span class="input-group-addon" >
+                                 <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                             </span>
+                         </div>
+
+
+                         <div class="input-group" id="cadproj_orca_materialconsumo_div">
+                             <input  name="nome" type="text" class="form-control" id="orca_materialconsumo" placeholder=" Material de Consumo*" required>
+                             <span class="input-group-addon" >
+                                 <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                             </span>
+                         </div>
+
+
+
+                         <div class="input-group" id="cadproj_orca_servicoterceiros_div">
+                             <input  name="nome" type="text" class="form-control" id="orca_servicoterceiros" placeholder="Serviços de Terceiros*" required>
+                             <span class="input-group-addon" >
+                                 <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                             </span>
+                         </div>
+
+                         <div class="input-group" id="cadproj_orca_despesatransporte_div">
+                             <input  name="nome" type="text" class="form-control" id="orca_despesatransporte" placeholder=" Despesa de Transporte*" required>
+                             <span class="input-group-addon" >
+                                 <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                             </span>
+                         </div>
+
+                         <div class="input-group" id="cadproj_orca_diariasmanutencao_div">
+                             <input  name="nome" type="text" class="form-control" id="orca_diariasmanutencao" placeholder=" Diarias e Manutenção*" required>
+                             <span class="input-group-addon" >
+                                 <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                             </span>
+                         </div>
+
+
+
+
+
+
+                         <h3><span class="label label-success">Anexos</span></h3>
+
+
+
+                         <div class="input-group" id="cadproj_aprov_institucional_div">
+                             <input  name="nome" type="text" class="form-control" id="aprov_institucional" placeholder=" Aprovação Institucional*" required>
+                             <span class="input-group-btn" >
+                                  <button style="position: relative; top: -14px;" class="btn btn-success" type="button">
+                                     <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                                  </button>
+                             </span>
+                         </div>
+
+                         <div class="input-group" id="cadproj_parecer_etica_div">
+                             <input  name="nome" type="text" class="form-control" id="aprov_parecer_etica" placeholder=" Parecer de Ética*" required>
+                             <span class="input-group-btn" >
+                                  <button style="position: relative; top: -14px;" class="btn btn-success" type="button">
+                                      <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                                  </button>
+                             </span>
+                         </div>
+
+
+                         <div class="input-group" id="cadproj_projeto completo_div">
+                             <input  name="nome" type="text" class="form-control" id="projeto completo" placeholder=" Projeto Completo*" required>
+                             <span class="input-group-btn" >
+                                  <button style="position: relative; top: -14px;" class="btn btn-success" type="button">
+                                      <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                                  </button>
+                             </span>
+                         </div>
+
+                         <!-- bools:
+
+                         aprovação inst
+                         parecer etica
+
+                         -->
+
+                         <!--
+                            upload:
+
+
+                         -->
+
+                         <button type="submit" class="btn btn-success">
+                             <h5> Cadastrar Projeto</h5>
+                         </button>
+
+                       </form>
+                      </div>
+                    </div>
+                 </div>
+             </div>
+         </div>
+ </div>
+
+ <div id="ct-visualizaprojetos" class="container tab-pane">
+     <div id="row-visualizaprojetos" class="row-fluid" >
+         OverView do Projeto!
+     </div>
+</div>
+
+
+
+ <div id="ct-editaprojetos" class="container tab-pane">
+     <div id="row-editaprojetos" class="row-fluid" >
+        Editar Projeto!
+     </div>
+ </div>
 
 
 
@@ -415,7 +713,7 @@
 
 <script src="../resource/scripts_js/bootstrap.min.js"></script>
 <script src="../resource/scripts_js/jquery.validate.js"></script>
-
+<script src="../resource/scripts_js/bootstrap-datepicker.js"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../resource/scripts_js/ie10-viewport-bug-workaround.js"></script>
