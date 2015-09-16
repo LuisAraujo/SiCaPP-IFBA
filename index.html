@@ -73,104 +73,71 @@
         <div class="tab-content">
 
             <!-- LOGIN -->
-            <div id="login" class="container tab-pane active">
-                <!-- ESCOLHE LOGIN -->
-                <div id="select_login" class="">
-                    <div class="row-fluid" >
-                        <div class="col-md-5 col-md-offset-3" >
+            <div id="login" class="container tab-pane container-login center-block active">
+                <section>
+                    <!-- ESCOLHE LOGIN -->
+                    <ul id="top-bar" class="nav nav-tabs nav-justified">
+                        <li class="active">
+                            <a href="#login-pesq" data-toggle="tab">Login Pesquisador</a>
+                        </li>
+                        <li>
+                            <a href="#login-bols" data-toggle="tab">Login Bolsista</a>
+                        </li>
+                    </ul>
 
-                            <div class="page-header">
-                                <h2>Acesso ao Sistema</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row-fluid" >
-                            <div class="col-md-3 col-md-offset-3" >
-                                <div id="ct-img-pesq" >
-                                    <a href=""><img id="img-pesq-login" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="imgs/icos/img_pesquisador.png" data-holder-rendered="true" style="width: 200px; height: 200px;">
-                                    </a>
+                    <div class="tab-content tabs-login col-lg-12 col-md-12 col-sm-12 cols-xs-12">
+                        <div id="login-pesq" class="tab-pane fade active in">
+                            <h2><i class="glyphicon glyphicon-log-in"></i> Accesso Pesquisador</h2>
+                            <!-- form login usuario (lu) -->
+                            <form id="lu_form_pes" role="form" method="post" action="" class="bs-example bs-example-form">
+                            <!-- usuario -->
+                                <div class="input-group" id="lu_email_pes_div">
+                                    <input  name="email" type="email" class="form-control" id="lu_email_pes" placeholder="Seu Email*" required>
+                                    <span class="input-group-addon">
+                                        <span class="" aria-hidden="true">Usuário</span>
+                                    </span>
                                 </div>
-                            </div>
+                                <!-- senha -->
+                                <div class="input-group" id="lu_senha_pes_div" >
+                                    <input  name="senha" type="text" class="form-control" id="lu_senha_pes" placeholder="Sua Senha*" required>
+                                    <span class="input-group-addon">
+                                        <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                    </span>
 
-                            <div class="col-md-3" >
-                                <div id="ct-img-bol" >
-                                    <a href=""><img id="img-bol-login" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="imgs/icos/img_bolsista.png" data-holder-rendered="true" style="width: 200px; height: 200px;">
-                                    </a>
                                 </div>
+                                <div> <a>Esqueci minha senha</a> </div>
+                                <button type="submit" class="btn btn-success">
+                                    <h5> Acessar </h5>
+                                </button >
+                            </form>
+                        </div>
+                        <div id="login-bols" class="tab-pane fade in">
+                            <h2><i class="glyphicon glyphicon-log-in"></i> Accesso Bolsista</h2>
+                            <!-- form login usuario (lu) -->
+                            <form id="lu_form_bol" role="form" method="post" action="" class="bs-example bs-example-form">
+                                <!-- usuario -->
+                                <div class="input-group" id="lu_email_bol_div">
+                                    <input  name="email" type="email" class="form-control" id="lu_email_bol" placeholder="Seu Email*" required>
+                                    <span class="input-group-addon">
+                                        <span class="" aria-hidden="true">Usuário</span>
+                                    </span>
+                                </div>
+                                <!-- senha -->
+                                <div class="input-group" id="lu_senha_bol_div" >
+                                    <input  name="senha" type="text" class="form-control" id="lu_senha_bol" placeholder="Sua Senha*" required>
+                                    <span class="input-group-addon">
+                                        <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                    </span>
 
+                                </div>
+                                <div> <a>Esqueci minha senha</a> </div>
+                                <button type="submit" class="btn btn-success">
+                                    <h5> Acessar </h5>
+                                </button >
+                            </form>
                         </div>
                     </div>
-                </div>
-
-
-                <!-- LOGIN PESCADOR -->
-
-                <div class="row-fluid" >
-                    <div class="col-md-5 col-md-offset-3" >
-                        <div class="panel  panel-success">
-                            <div class="panel-heading">Acesso ao SICAPP | Pesquisador</div>
-                            <div class="panel-body">
-                                <!-- form login usuario (lu) -->
-                                <form id="lu_form_pes" role="form" method="post" action="" class="bs-example bs-example-form">
-                                    <!-- usuario -->
-                                    <div class="input-group" id="lu_email_pes_div">
-                                        <input  name="email" type="email" class="form-control" id="lu_email_pes" placeholder="Seu Email*" required>
-                                        <span class="input-group-addon">
-                                            <span class="" aria-hidden="true">Usuário</span>
-                                        </span>
-                                    </div>
-                                    <!-- senha -->
-                                    <div class="input-group" id="lu_senha_pes_div" >
-                                        <input  name="senha" type="text" class="form-control" id="lu_senha_pes" placeholder="Sua Senha*" required>
-                                        <span class="input-group-addon">
-                                            <span class="" aria-hidden="true">Senha &nbsp;</span>
-                                        </span>
-
-                                    </div>
-                                    <div> <a>Esqueci minha senha</a> </div>
-                                    <button type="submit" class="btn btn-success">
-                                        <h5> Acessar </h5>
-                                    </button >
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- LOGIN BOLSISTA -->
-                <div class="row-fluid" >
-                    <div class="col-md-5 col-md-offset-3" >
-                        <div class="panel  panel-success">
-                            <div class="panel-heading">Acesso ao SICAPP | Bolsista</div>
-                            <div class="panel-body">
-                                <!-- form login usuario (lu) -->
-                                <form id="lu_form_bol" role="form" method="post" action="" class="bs-example bs-example-form">
-                                    <!-- usuario -->
-                                    <div class="input-group" id="lu_email_bol_div">
-                                        <input  name="email" type="email" class="form-control" id="lu_email_bol" placeholder="Seu Email*" required>
-                                        <span class="input-group-addon">
-                                            <span class="" aria-hidden="true">Usuário</span>
-                                        </span>
-                                    </div>
-                                    <!-- senha -->
-                                    <div class="input-group" id="lu_senha_bol_div" >
-                                        <input  name="senha" type="text" class="form-control" id="lu_senha_bol" placeholder="Sua Senha*" required>
-                                        <span class="input-group-addon">
-                                            <span class="" aria-hidden="true">Senha &nbsp;</span>
-                                        </span>
-
-                                    </div>
-                                    <div> <a>Esqueci minha senha</a> </div>
-                                    <button type="submit" class="btn btn-success">
-                                        <h5> Acessar </h5>
-                                    </button >
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                </section>
             </div>
             <!-- FIM LOGIN -->
 
