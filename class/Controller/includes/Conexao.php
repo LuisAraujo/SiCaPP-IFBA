@@ -11,17 +11,21 @@ class Conexao {
 
     public static function Conectar(){
 
-         $link = mysql_connect("localhost", "root", "root");
-         mysql_select_db("gia", $link);
+        //$localhost ="mysql01.ifba.edu.br";
+        $localhost ="localhost";
+        //$user="gia";
+        $user="root";
+        //$senha = "2389sdmcH";
+        $senha = "root";
+        $banco="gia";
 
-       // mysql_query("SET NAMES 'utf8'");
-       // mysql_query('SET character_set_connection=utf8');
-       // mysql_query('SET character_set_client=utf8');
-       // mysql_query('SET character_set_results=utf8');
+         $link = mysql_connect($localhost,$user,$senha);
+         mysql_select_db($banco, $link);
 
     }
-
 }
+
+Conexao::Conectar();
 
 
 ?>
