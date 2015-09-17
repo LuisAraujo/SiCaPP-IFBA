@@ -1,239 +1,242 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> SICAPP | IFBA</title>
-    <meta name="description" content="Sistema de Cadastro de Projeto de Pesquisa">
-    <meta name="author" content="Luis Araujo, Silas Ribeiro, João Franco, Edmilson Rufino, Igor Melo, Layna Pontes, Francisco Aires">
-
-    <!-- Bootstrap core CSS -->
-    <link href="resource/style/bootstrap.css" rel="stylesheet">
-
-    <!-- Styles for this page CETE -->
-    <link href="resource/style/style.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]>
-    <script src="resource/scripts_js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="resource/scripts_js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="resource/scripts_js/jquery-1.11.3.min.js"></script>
-
-</head>
-<body page="home">
-    <header>
-        <div class="navbar-wrapper">
-            <div class="container" id="upheader">
-                <div class="row-fluid">
-                    <div class="col-lg-8">
-                        <div class="sub_title">IFBA</div>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title> SICAPP | IFBA</title>
+        <meta name="description" content="Sistema de Cadastro de Projeto de Pesquisa">
+        <meta name="author" content="Luis Araujo, Silas Ribeiro, João Franco, Edmilson Rufino, Igor Melo, Layna Pontes, Francisco Aires">
+        <!-- Bootstrap core CSS -->
+        <link href="resource/style/bootstrap.css" rel="stylesheet">
+        <!-- Styles for this page CETE -->
+        <link href="resource/style/style.css" rel="stylesheet">
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]>
+        <script src="resource/scripts_js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="resource/scripts_js/ie-emulation-modes-warning.js"></script>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script src="resource/scripts_js/jquery-1.11.3.min.js"></script>
+    </head>
+    <body page="home">
+        <header>
+            <div class="navbar-wrapper">
+                <div class="container" id="upheader">
+                    <div class="row-fluid">
+                        <div class="col-lg-8">
+                            <div class="sub_title">IFBA</div>
                             <div class="title"> Instituto Federal da Bahia </div>
-                                <div class="sub_title">SICAPP | Sistema de Cadastro de Projeto de Pesquisa</div>
-                            </div>
+                            <div class="sub_title">SICAPP | Sistema de Cadastro de Projeto de Pesquisa</div>
+                        </div>
                         <div class="col-lg-3">
-                        <!-- para futuro uso -->
+                            <!-- para futuro uso -->
+                        </div>
                     </div>
                 </div>
+                <nav class="navbar navbar-default navbar-static-top" role="navigation tablist">
+                    <div class="container">
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul id="myTabs" role="tablist" class="nav navbar-nav">
+                                <li class="active">
+                                    <a href="#login" data-toggle="tab">Acesso SICAPP</a>
+                                </li>
+                                <li>
+                                    <a href="#editais" data-toggle="tab">Editais</a>
+                                </li>
+                                <li>
+                                    <a href="#cp" data-toggle="tab">Cadastro Pesquisador</a>
+                                </li>
+                                <li>
+                                    <a href="#bp" data-toggle="tab">Buscar Pesquisador</a>
+                                </li>
+                                <li>
+                                    <a href="#cb" data-toggle="tab">Cadastro Bolsista</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <nav class="navbar navbar-default navbar-static-top" role="navigation tablist">
-                <div class="container">
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul id="myTabs" role="tablist" class="nav navbar-nav">
+        </header>
+        <article>
+            <div class="tab-content">
+                <!-- LOGIN -->
+                <div id="login" class="container tab-pane container-login center-block active">
+                    <section>
+                        <!-- ESCOLHE LOGIN -->
+                        <ul id="top-bar" class="nav nav-tabs nav-justified">
                             <li class="active">
-                                <a href="#login" data-toggle="tab">Acesso SICAPP</a>
+                                <a href="#login-pesq" data-toggle="tab">Login Pesquisador</a>
                             </li>
                             <li>
-                                <a href="#editais" data-toggle="tab">Editais</a>
-                            </li>
-                            <li>
-                                <a href="#cp" data-toggle="tab">Cadastro Pesquisador</a>
-                            </li>
-                            <li>
-                                <a href="#bp" data-toggle="tab">Buscar Pesquisador</a>
-                            </li>
-                            <li>
-                                <a href="#cb" data-toggle="tab">Cadastro Bolsista</a>
+                                <a href="#login-bols" data-toggle="tab">Login Bolsista</a>
                             </li>
                         </ul>
-                    </div>
+                        <div class="tab-content tabs-login col-lg-12 col-md-12 col-sm-12 cols-xs-12">
+                            <div id="login-pesq" class="tab-pane fade active in">
+                                <h2><i class="glyphicon glyphicon-log-in"></i> Accesso Pesquisador</h2>
+                                <!-- form login usuario (lu) -->
+                                <form id="lu_form_pes" role="form" method="post" action="" class="bs-example bs-example-form">
+                                    <!-- usuario -->
+                                    <div class="input-group" id="lu_email_pes_div">
+                                        <input  name="email" type="email" class="form-control" id="lu_email_pes" placeholder="Seu Email*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Usuário</span>
+                                        </span>
+                                    </div>
+                                    <!-- senha -->
+                                    <div class="input-group" id="lu_senha_pes_div" >
+                                        <input  name="senha" type="text" class="form-control" id="lu_senha_pes" placeholder="Sua Senha*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                        </span>
+                                    </div>
+                                    <div> <a>Esqueci minha senha</a> </div>
+                                    <button type="submit" class="btn btn-success">
+                                    <h5> Acessar </h5>
+                                    </button >
+                                </form>
+                            </div>
+                            <div id="login-bols" class="tab-pane fade in">
+                                <h2><i class="glyphicon glyphicon-log-in"></i> Accesso Bolsista</h2>
+                                <!-- form login usuario (lu) -->
+                                <form id="lu_form_bol" role="form" method="post" action="" class="bs-example bs-example-form">
+                                    <!-- usuario -->
+                                    <div class="input-group" id="lu_email_bol_div">
+                                        <input  name="email" type="email" class="form-control" id="lu_email_bol" placeholder="Seu Email*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Usuário</span>
+                                        </span>
+                                    </div>
+                                    <!-- senha -->
+                                    <div class="input-group" id="lu_senha_bol_div" >
+                                        <input  name="senha" type="text" class="form-control" id="lu_senha_bol" placeholder="Sua Senha*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                        </span>
+                                    </div>
+                                    <div> <a>Esqueci minha senha</a> </div>
+                                    <button type="submit" class="btn btn-success">
+                                    <h5> Acessar </h5>
+                                    </button >
+                                </form>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </nav>
-        </div>
-    </header>
-
-    <article>
-        <div class="tab-content">
-
-            <!-- LOGIN -->
-            <div id="login" class="container tab-pane container-login center-block active">
-                <section>
-                    <!-- ESCOLHE LOGIN -->
-                    <ul id="top-bar" class="nav nav-tabs nav-justified">
-                        <li class="active">
-                            <a href="#login-pesq" data-toggle="tab">Login Pesquisador</a>
-                        </li>
-                        <li>
-                            <a href="#login-bols" data-toggle="tab">Login Bolsista</a>
-                        </li>
-                    </ul>
-
-                    <div class="tab-content tabs-login col-lg-12 col-md-12 col-sm-12 cols-xs-12">
-                        <div id="login-pesq" class="tab-pane fade active in">
-                            <h2><i class="glyphicon glyphicon-log-in"></i> Accesso Pesquisador</h2>
-                            <!-- form login usuario (lu) -->
-                            <form id="lu_form_pes" role="form" method="post" action="" class="bs-example bs-example-form">
-                            <!-- usuario -->
-                                <div class="input-group" id="lu_email_pes_div">
-                                    <input  name="email" type="email" class="form-control" id="lu_email_pes" placeholder="Seu Email*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Usuário</span>
-                                    </span>
-                                </div>
-                                <!-- senha -->
-                                <div class="input-group" id="lu_senha_pes_div" >
-                                    <input  name="senha" type="text" class="form-control" id="lu_senha_pes" placeholder="Sua Senha*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Senha &nbsp;</span>
-                                    </span>
-
-                                </div>
-                                <div> <a>Esqueci minha senha</a> </div>
-                                <button type="submit" class="btn btn-success">
-                                    <h5> Acessar </h5>
-                                </button >
-                            </form>
-                        </div>
-                        <div id="login-bols" class="tab-pane fade in">
-                            <h2><i class="glyphicon glyphicon-log-in"></i> Accesso Bolsista</h2>
-                            <!-- form login usuario (lu) -->
-                            <form id="lu_form_bol" role="form" method="post" action="" class="bs-example bs-example-form">
-                                <!-- usuario -->
-                                <div class="input-group" id="lu_email_bol_div">
-                                    <input  name="email" type="email" class="form-control" id="lu_email_bol" placeholder="Seu Email*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Usuário</span>
-                                    </span>
-                                </div>
-                                <!-- senha -->
-                                <div class="input-group" id="lu_senha_bol_div" >
-                                    <input  name="senha" type="text" class="form-control" id="lu_senha_bol" placeholder="Sua Senha*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Senha &nbsp;</span>
-                                    </span>
-
-                                </div>
-                                <div> <a>Esqueci minha senha</a> </div>
-                                <button type="submit" class="btn btn-success">
-                                    <h5> Acessar </h5>
-                                </button >
-                            </form>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <!-- FIM LOGIN -->
-
-
-            <!-- CADASTRO PESQUISADOR -->
-            <div id="cp" class="container tab-pane">
-                <div class="row-fluid" >
-                    <div class="col-md-5 col-md-offset-3" >
-                        <div class="panel  panel-success">
-                            <div class="panel-heading">Cadastro Pesquisador | SICAPP</div>
-                            <div class="panel-body">
-                            <!-- form cadastro pesquisador (cp) -->
-                            <form id="cp_form_pes" role="form" method="post" action="" class="bs-example bs-example-form">
-                                <!-- nome -->
-                                <div class="input-group" id="cp_nome_div">
-                                    <input  name="nome" type="text" class="form-control" id="cp_nome" placeholder="Seu Nome*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Nome &nbsp;&nbsp;&nbsp;</span>
-                                    </span>
-                                </div>
-                                <!-- cpf -->
-                                <div class="input-group" id="cp_cpf_div">
-                                    <input  name="cpf" type="text" class="form-control" id="cp_cpf" placeholder="Seu CPF*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">CPF &nbsp;&nbsp; &nbsp;&nbsp;</span>
-                                    </span>
-                                </div>
-                                <!-- siape -->
-                                <div class="input-group" id="cp_siape_div">
-                                    <input  name="siape" type="text" class="form-control" id="cp_siape" placeholder="Seu SIAPE*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">SIAPE &nbsp;&nbsp;</span>
-                                    </span>
-                                </div>
-                                <!-- lattes -->
-                                <div class="input-group" id="cp_lattes_div">
-                                    <input  name="lattes" type="text" class="form-control" id="cp_lattes" placeholder="Endereço do seu Lattes*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Lattes&nbsp;&nbsp;&nbsp;</span>
-                                    </span>
-                                </div>
-                                <!-- usuario -->
-                                <div class="input-group" id="cp_email_div">
-                                    <input  name="email" type="email" class="form-control" id="cp_email" placeholder="Seu Email*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Usuário</span>
-                                    </span>
-                                </div>
-                                <!-- senha -->
-                                <div class="input-group" id="cp_senha_div" >
-                                    <input  name="senha" type="text" class="form-control" id="cp_senha" placeholder="Sua Senha*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Senha &nbsp;</span>
-                                    </span>
-                                </div>
-                                <!-- senha -->
-                                <div class="input-group" id="cp_confirm_senha_div" >
-                                    <input  name="senha2" type="text" class="form-control" id="cp_confirm_senha" placeholder="Confirme sua Senha*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Senha &nbsp;</span>
-                                    </span>
-                                </div>
-                                <!-- titulação -->
-                                <div class="btn-group" id="cp_titulacao_div" style="width: 100%">
-                                    <input id="cp_titulacao" name="titulacao" value=""  style="display: none" />
-                                    <button id="drop_titulacao_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
-                                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_titulacao">Titulacao*</span> <span class="caret"></span>
-                                    </button>
-                                    <ul id="drop_titulacao" class="dropdown-menu">
-
-                                    </ul>
-                                </div>
-
-
-                                <!-- campus -->
-                                <div class="btn-group" id="cp_campus_div" style="width: 100%">
-                                    <input id="cp_campus" name="campus" value=""  style="display: none">
-                                    <button id="drop_campus_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
-                                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_campus">Campus*</span> <span class="caret"></span>
-                                    </button>
-                                    <ul id="drop_campus" class="dropdown-menu">
-                                    </ul>
-                                </div>
-
-
-                                <button type="submit" class="btn btn-success">
+                <!-- FIM LOGIN -->
+                <!-- CADASTRO PESQUISADOR -->
+                <div id="cp" class="container tab-pane">
+                    <div class="row-fluid" >
+                        <div class="col-md-5 col-md-offset-3" >
+                            <div class="panel  panel-success">
+                                <div class="panel-heading">Cadastro Pesquisador | SICAPP</div>
+                                <div class="panel-body">
+                                    <!-- form cadastro pesquisador (cp) -->
+                                    <form id="cp_form_pes" role="form" method="post" action="" class="bs-example bs-example-form">
+                                        <!-- nome -->
+                                        <div class="input-group" id="cp_nome_div">
+                                            <input  name="nome" type="text" class="form-control" id="cp_nome" placeholder="Seu Nome*" required>
+                                            <span class="input-group-addon">
+                                                <span class="" aria-hidden="true">Nome &nbsp;&nbsp;&nbsp;</span>
+                                            </span>
+                                        </div>
+                                        <!-- cpf -->
+                                        <div class="input-group" id="cp_cpf_div">
+                                            <input  name="cpf" type="cpf" class="form-control" id="cp_cpf" placeholder="Seu CPF*" required>
+                                            <span class="input-group-addon">
+                                                <span class="" aria-hidden="true">CPF &nbsp;&nbsp; &nbsp;&nbsp;</span>
+                                            </span>
+                                        </div>
+                                        <!-- siape -->
+                                        <div class="input-group" id="cp_siape_div">
+                                            <input  name="siape" type="text" class="form-control" id="cp_siape" placeholder="Seu SIAPE*" required>
+                                            <span class="input-group-addon">
+                                                <span class="" aria-hidden="true">SIAPE &nbsp;&nbsp;</span>
+                                            </span>
+                                        </div>
+                                        <!-- lattes -->
+                                        <div class="input-group" id="cp_lattes_div">
+                                            <input  name="lattes" type="url" class="form-control" id="cp_lattes" placeholder="Endereço do seu Lattes*" required>
+                                            <span class="input-group-addon">
+                                                <span class="" aria-hidden="true">Lattes&nbsp;&nbsp;&nbsp;</span>
+                                            </span>
+                                        </div>
+                                        <!-- usuario -->
+                                        <div class="input-group" id="cp_email_div">
+                                            <input  name="email" type="email" class="form-control" id="cp_email" placeholder="Seu Email*" required>
+                                            <span class="input-group-addon">
+                                                <span class="" aria-hidden="true">Usuário</span>
+                                            </span>
+                                        </div>
+                                        <!-- senha -->
+                                        <div class="input-group" id="cp_senha_div" >
+                                            <input  name="senha" type="password" class="form-control" id="cp_senha" placeholder="Sua Senha*" required>
+                                            <span class="input-group-addon">
+                                                <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                            </span>
+                                        </div>
+                                        <!-- senha -->
+                                        <div class="input-group" id="cp_confirm_senha_div" >
+                                            <input  name="senha2" type="password" class="form-control" id="cp_confirm_senha" placeholder="Confirme sua Senha*" required>
+                                            <span class="input-group-addon">
+                                                <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                            </span>
+                                        </div>
+                                        <!-- titulação -->
+                                        <div class="btn-group" id="cp_titulacao_div" style="width: 100%">
+                                            <input id="cp_titulacao" name="titulacao" value=""  style="display: none" />
+                                            <button id="drop_titulacao_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                            <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                                            <span id="placeholder_titulacao">Titulacao*</span> <span class="caret"></span>
+                                            </button>
+                                        <ul id="drop_titulacao" class="dropdown-menu"></ul>
+                                    </div>
+                                    <!-- campus -->
+                                    <div class="btn-group" id="cp_campus_div" style="width: 100%">
+                                        <input id="cp_campus" name="campus" value=""  style="display: none">
+                                        <button id="drop_campus_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                                        <span id="placeholder_campus">Campus*</span> <span class="caret"></span>
+                                        </button>
+                                        <ul id="drop_campus" class="dropdown-menu">
+                                        </ul>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">
                                     <h5> Cadastrar </h5>
-                                </button>
-                            </form>
+                                    </button>
+                                </form>
+                                <div id="success-cad-pesq" class="modal fade">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title">Você foi cadastrado com sucesso!</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="fail-cad-pesq" class="modal fade">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title">Usuário já existe!</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- FIM CADASTRO PESQUISADOR -->
-
             <!-- CADASTRO BOLSISTA -->
             <div id="cb" class="container tab-pane">
                 <div class="row-fluid" >
@@ -241,74 +244,71 @@
                         <div class="panel  panel-success">
                             <div class="panel-heading">Cadastro Bolsista | SICAPP</div>
                             <div class="panel-body">
-                            <!-- form cadastro bolsista (cb) -->
-                            <form id="cb_form" role="form" method="post" action="" class="bs-example bs-example-form">
-                                <!-- nome -->
-                                <div class="input-group" id="cb_nome_div">
-                                    <input  name="nome" type="text" class="form-control" id="cb_nome" placeholder="Seu Nome*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Nome &nbsp;&nbsp;&nbsp;</span>
-                                    </span>
-                                </div>
-                                <!-- cpf -->
-                                <div class="input-group" id="cb_cpf_div">
-                                    <input  name="cpf" type="text" class="form-control" id="cb_cpf" placeholder="Seu CPF*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">CPF &nbsp;&nbsp; &nbsp;&nbsp;</span>
-                                    </span>
-                                </div>
-                                <!-- siape -->
-                                <div class="input-group" id="cb_siape_div">
-                                    <input  name="siape" type="text" class="form-control" id="cb_siape" placeholder="Sua Matrícula*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Matrícula</span>
-                                    </span>
-                                </div>
-                                <!-- lattes -->
-                                <div class="input-group" id="cb_lattes_div">
-                                    <input  name="lattes" type="text" class="form-control" id="cb_lattes" placeholder="Endereço do seu Lattes*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Lattes&nbsp;&nbsp;&nbsp;</span>
-                                    </span>
-                                </div>
-                                <!-- usuario -->
-                                <div class="input-group" id="cb_email_div">
-                                    <input  name="email" type="email" class="form-control" id="cb_email" placeholder="Seu Email*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Usuário</span>
-                                    </span>
-                                </div>
-                                <!-- senha -->
-                                <div class="input-group" id="cb_senha_div" >
-                                    <input  name="nome" type="text" class="form-control" id="cb_senha" placeholder="Sua Senha*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Senha &nbsp;</span>
-                                    </span>
-                                </div>
-                                <!-- senha -->
-                                <div class="input-group" id="cb_confirm_senha_div" >
-                                    <input  name="nome" type="text" class="form-control" id="cb_confirm_senha" placeholder="Confirme sua Senha*" required>
-                                    <span class="input-group-addon">
-                                        <span class="" aria-hidden="true">Senha &nbsp;</span>
-                                    </span>
-                                </div>
-                                <button type="submit" class="btn btn-success">
+                                <!-- form cadastro bolsista (cb) -->
+                                <form id="cb_form" role="form" method="post" action="" class="bs-example bs-example-form">
+                                    <!-- nome -->
+                                    <div class="input-group" id="cb_nome_div">
+                                        <input  name="nome" type="text" class="form-control" id="cb_nome" placeholder="Seu Nome*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Nome &nbsp;&nbsp;&nbsp;</span>
+                                        </span>
+                                    </div>
+                                    <!-- cpf -->
+                                    <div class="input-group" id="cb_cpf_div">
+                                        <input  name="cpf" type="text" class="form-control" id="cb_cpf" placeholder="Seu CPF*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">CPF &nbsp;&nbsp; &nbsp;&nbsp;</span>
+                                        </span>
+                                    </div>
+                                    <!-- siape -->
+                                    <div class="input-group" id="cb_siape_div">
+                                        <input  name="siape" type="text" class="form-control" id="cb_siape" placeholder="Sua Matrícula*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Matrícula</span>
+                                        </span>
+                                    </div>
+                                    <!-- lattes -->
+                                    <div class="input-group" id="cb_lattes_div">
+                                        <input  name="lattes" type="text" class="form-control" id="cb_lattes" placeholder="Endereço do seu Lattes*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Lattes&nbsp;&nbsp;&nbsp;</span>
+                                        </span>
+                                    </div>
+                                    <!-- usuario -->
+                                    <div class="input-group" id="cb_email_div">
+                                        <input  name="email" type="email" class="form-control" id="cb_email" placeholder="Seu Email*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Usuário</span>
+                                        </span>
+                                    </div>
+                                    <!-- senha -->
+                                    <div class="input-group" id="cb_senha_div" >
+                                        <input  name="nome" type="text" class="form-control" id="cb_senha" placeholder="Sua Senha*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                        </span>
+                                    </div>
+                                    <!-- senha -->
+                                    <div class="input-group" id="cb_confirm_senha_div" >
+                                        <input  name="nome" type="text" class="form-control" id="cb_confirm_senha" placeholder="Confirme sua Senha*" required>
+                                        <span class="input-group-addon">
+                                            <span class="" aria-hidden="true">Senha &nbsp;</span>
+                                        </span>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">
                                     <h5> Cadastrar </h5>
-                                </button>
-                            </form>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- FIM CADASTRO BOLSISTA -->
-
             <!-- EXIBE EDITAIS -->
             <div id="editais" class="container tab-pane">
-
                 <div id="row-editais" class="row-fluid" >
                     <div id="col-editais" class="col-md-9 col-md-offset-1" >
-
                         <div class="list-group">
                             <a href="#" class="list-group-item active">
                                 <h4>  Editais </h4>
@@ -322,7 +322,6 @@
                 </div>
             </div>
             <!-- FIM EXIBE EDITAIS -->
-
             <!-- BUSCA PESQUISADOR-->
             <div id="bp" class="container tab-pane">
                 <div class="input-group input-group-lg">
@@ -340,22 +339,19 @@
         <div id="footer_sicapp" class="row">
             <div class="col-lg-9 col-lg-offset-1" >
                 <div class="page_footer">SICAPP | Sistemade de Cadastro de Projeto de Pesquisa v 1.0. Copyright © <a target="_blank" href="http://www.gia.ifba.edu.br/">Grupo de informática Aplicada</a> - <a target="_blank" href="http://santoamaro.ifba.edu.br/">IFBA Campus Santo Amaro</a>.
-                Sistema desenvolvido utilizando <i>softwares</i> e tecnologia livre.</div>
-            </div>
+            Sistema desenvolvido utilizando <i>softwares</i> e tecnologia livre.</div>
         </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-
-    <script src="resource/scripts_js/bootstrap.min.js"></script>
-    <script src="resource/scripts_js/jquery.validate.js"></script>
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="resource/scripts_js/ie10-viewport-bug-workaround.js"></script>
-    <script src="resource/scripts_js/scriptsInteracao.js"></script>
-    <script src="resource/scripts_js/scriptsAjax.js"></script>
-    <script> verificaUsuarioLogado();</script>
+    </div>
+</footer>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="resource/scripts_js/bootstrap.min.js"></script>
+<script src="resource/scripts_js/jquery.validate.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="resource/scripts_js/ie10-viewport-bug-workaround.js"></script>
+<script src="resource/scripts_js/scriptsInteracao.js"></script>
+<script src="resource/scripts_js/scriptsAjax.js"></script>
+<script> verificaUsuarioLogado();</script>
 </body>
 </html>

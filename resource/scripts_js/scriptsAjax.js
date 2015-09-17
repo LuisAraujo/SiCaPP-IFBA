@@ -49,6 +49,12 @@ $("#lu_form_pes").validate({
  */
 $("#cp_form_pes").validate({
 
+    rules: {
+        senha2: {
+            equalTo: "#cp_senha" //validação de senha
+        }
+    },
+
     submitHandler: function(form) {
 
         var dados = $(form).serialize();
@@ -57,23 +63,30 @@ $("#cp_form_pes").validate({
             type: "POST",
             url: "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=inserir",
             data: dados,
-            success: function(data)
-            {
-
-                console.log(data);
-                //RETORNA 1 EM CASO DE SUCESSO. Ex: if(data==1) console.log("sucesso");
-                //EXECUTA MODAL COMO SUCESSO (BOTÃO PARA A TELA DE LOGINA)
-                //LIMPA OS CAMPUS
-
-
-            },
-            error: function(data)
-            {
-                //EXECUTA MODAL COMO AVISO DE ERRO
-
+            success: function(data){
+                if(data == 1){
+                    $modalCadPesq = $('#success-cad-pesq');
+                    $modalCadPesq.modal('show');
+                    $modalCadPesq.on('hidden.bs.modal',function(e){
+                        form.nome.value = "";
+                        form.cpf.value = "";
+                        form.siape.value = "";
+                        form.lattes.value = "";
+                        form.email.value = "";
+                        form.senha.value = "";
+                        form.senha2.value = "";
+                        form.senha2.value = "";
+                        form.senha2.value = "";
+                        $("#placeholder_titulacao").html("Titulação*");
+                        $("#placeholder_campus").html("Campus*");
+                        $('a[href="#login"]').tab('show')
+                    });
+                }else{
+                    $modalCadPesq = $('#fail-cad-pesq');
+                    $modalCadPesq.modal('show');
+                }
             }
         });
-
         return false;
     }
 
@@ -96,7 +109,7 @@ $("#form_editaperfil_pes").validate({
 
         $.ajax({
             type: "POST",
-            url: "../class/Controller/Dispatcher2.php?classe=Pesquisador&acao=atualizar",
+            url: "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=atualizar",
             data: dados,
             success: function(data)
             {
@@ -131,10 +144,9 @@ $("#drop_titulacao_bt").click(function(){
 
     $.ajax({
         type: "POST",
-        url: "/SiCaPP-IFBA/class/Controller/Dispatcher2.php?classe=Titulacao&acao=listar",
+        url: "class/Controller/Dispatcher2.php?classe=Titulacao&acao=listar",
         dataType: 'json',
-        success: function(data)
-        {
+        success: function(data){
             str = "";
             for(var i = 0; i < data.length; i++){
                 str += "<li><a id='titu"+data[i][0]+"' href='#' value='"+data[i][0]+"'>"+data[i][1]+"</a></li>";
@@ -164,7 +176,7 @@ $("#drop_titulacao_bt").click(function(){
 $("#drop_campus_bt").click(function(){
     $.ajax({
         type: "POST",
-        url: "/SiCaPP-IFBA/class/Controller/Dispatcher2.php?classe=Campus&acao=listar",
+        url: "class/Controller/Dispatcher2.php?classe=Campus&acao=listar",
         dataType: 'json',
         success: function(data)
         {
@@ -197,7 +209,7 @@ $("#tab_meu_perfil_pes").click(function(){
 
     $.ajax({
         type: "POST",
-        url: "../class/Controller/Dispatcher2.php?classe=Pesquisador&acao=obterDados",
+        url: "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=obterDados",
         dataType: 'json',
         success: function(data)
         {
@@ -234,7 +246,7 @@ $("#tab_meu_perfil_pes").click(function(){
 verificaPermissaoPagina = function(){
     $.ajax({
         type: "POST",
-        url: "../class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession",
+        url: "class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession",
         success: function(data)
         {
             page = $("body").attr("page");
@@ -289,7 +301,7 @@ verificaUsuarioLogado = function(){
 delogaUsuario = function(){
     $.ajax({
         type: "POST",
-        url: "../class/Controller/Dispatcher2.php?classe=Session&acao=deslogaUsuario",
+        url: "class/Controller/Dispatcher2.php?classe=Session&acao=deslogaUsuario",
         success: function(data)
         {
             redireciona(AMB_HOME);

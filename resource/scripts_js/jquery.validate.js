@@ -313,16 +313,16 @@ $.extend( $.validator, {
 	},
 
 	messages: {
-		required: "Esse campo é obrigatório.",
+		required: "Campo é obrigatório.",
 		remote: "Please fix this field.",
-		email: "Please enter a valid email address.",
-		url: "Please enter a valid URL.",
+		email: "Email inválido.",
+		url: "URL ínvalida.",
 		date: "Please enter a valid date.",
 		dateISO: "Please enter a valid date ( ISO ).",
 		number: "Please enter a valid number.",
 		digits: "Please enter only digits.",
 		creditcard: "Please enter a valid credit card number.",
-		equalTo: "Please enter the same value again.",
+		equalTo: "Senha não correspondente.",
 		maxlength: $.validator.format( "Please enter no more than {0} characters." ),
 		minlength: $.validator.format( "Please enter at least {0} characters." ),
 		rangelength: $.validator.format( "Please enter a value between {0} and {1} characters long." ),
@@ -781,7 +781,7 @@ $.extend( $.validator, {
                     //default
                     //place.insertAfter( element );
                     //MODIFICACAO PARA A PAGE DO CETE -> Inserir após a div que engloba o input
-					place.insertBefore( "#"+element.id+"_div" );
+					place.insertAfter( "#"+element.id+"_div" );
 				}
 
 				// Link error back to the element
@@ -1393,6 +1393,6 @@ jQuery.validator.addMethod("cpf", function (value, element) {
     if ((x = b % 11) < 2) { a[10] = 0; } else { a[10] = 11 - x; }
     if ((cpf.charAt(9) != a[9]) || (cpf.charAt(10) != a[10]) || cpf.match(expReg)) return this.optional(element) || false;
     return this.optional(element) || true;
-}, "Informe um CPF válido."); // Mensagem padrão
+}, "CPF inválido."); // Mensagem padrão
 
 

@@ -135,9 +135,9 @@ $(document).ready(function(){
     });
 
     //data picker inicio
-    $("#cadproj_data_div div").datepicker({
+    /*$("#cadproj_data_div div").datepicker({
         language: "pt-BR",
         autoclose: true
-    });
+    });*/
 
 });
