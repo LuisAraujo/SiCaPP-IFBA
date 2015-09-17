@@ -75,11 +75,6 @@ ativaFormEpPes = function(param){
         //desativa edição de foto
         $("#ct-foto").attr("editable",false);
         $("#img-foto-perfil").css('opacity','1');
-
-
-
-
-
     }
 
 }
@@ -97,12 +92,13 @@ $(document).ready(function(){
      * @version 1.0
      * @author Luis Araujo
      */
-    $("#bt_editaperfil").click(
-        function(){
-            ativaFormEpPes(true);
-        });
+    $("#bt_editaperfil").click(function(){
+        ativaFormEpPes(true);
+    });
 
-
+    $("#myTabs li a").click(function(){
+        ativaFormEpPes(false);
+    });
 
     $("#ct-foto").hover(function(){
         if($(this).attr("editable")== "true")

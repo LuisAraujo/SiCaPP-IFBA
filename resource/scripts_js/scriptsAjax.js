@@ -1,4 +1,6 @@
 
+var URL = "http://sicapp.com/SiCaPP-IFBA/";
+
 $(document).ready(function(){
 
 /**
@@ -16,7 +18,7 @@ $("#lu_form_pes").validate({
 
         $.ajax({
             type: "POST",
-            url: "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=logar",
+            url: URL + "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=logar",
             data: dados,
             success: function(data)
             {
@@ -45,7 +47,7 @@ $("#lu_form_pes").validate({
  * retorna sucesso em caso de cadastro e erro em caso
  * de falha
  * @version 1.0
- * @author Luis Araujo
+ * @author Luis Araujo, Silas Ribeiro
  */
 $("#cp_form_pes").validate({
 
@@ -61,7 +63,7 @@ $("#cp_form_pes").validate({
 
         $.ajax({
             type: "POST",
-            url: "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=inserir",
+            url: URL + "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=inserir",
             data: dados,
             success: function(data){
                 if(data == 1){
@@ -109,20 +111,15 @@ $("#form_editaperfil_pes").validate({
 
         $.ajax({
             type: "POST",
-            url: "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=atualizar",
+            url: URL + "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=atualizar",
             data: dados,
-            success: function(data)
-            {
-                console.log(data);
-
-
+            success: function(data){
+                $('#success-edit-pesq').modal('show');
                 ativaFormEpPes(false);
                 $("#tab_meu_perfil_pes").trigger('click');
-
             },
-            error: function(data)
-            {
-                console.log("erro");
+            error: function(data){
+                console.log("Erro no Servidor");
             }
         });
 
@@ -143,8 +140,8 @@ $("#form_editaperfil_pes").validate({
 $("#drop_titulacao_bt").click(function(){
 
     $.ajax({
-        type: "POST",
-        url: "class/Controller/Dispatcher2.php?classe=Titulacao&acao=listar",
+        type: "GET",
+        url: URL + "class/Controller/Dispatcher2.php?classe=Titulacao&acao=listar",
         dataType: 'json',
         success: function(data){
             str = "";
@@ -159,8 +156,7 @@ $("#drop_titulacao_bt").click(function(){
                 $("#cp_titulacao").attr("value",$(this).attr("value"));
             });
         },
-        error: function(data)
-        {
+        error: function(data){
             console.log(data);
         }
     });
@@ -175,8 +171,8 @@ $("#drop_titulacao_bt").click(function(){
  */
 $("#drop_campus_bt").click(function(){
     $.ajax({
-        type: "POST",
-        url: "class/Controller/Dispatcher2.php?classe=Campus&acao=listar",
+        type: "GET",
+        url: URL + "class/Controller/Dispatcher2.php?classe=Campus&acao=listar",
         dataType: 'json',
         success: function(data)
         {
@@ -208,11 +204,10 @@ $("#drop_campus_bt").click(function(){
 $("#tab_meu_perfil_pes").click(function(){
 
     $.ajax({
-        type: "POST",
-        url: "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=obterDados",
+        type: "GET",
+        url: URL + "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=obterDados",
         dataType: 'json',
-        success: function(data)
-        {
+        success: function(data){
            $("#perfil_nome").html(data["nome"]);
            $("#ep-nome").val(data["nome"]);
            $("#ep-cpf").val(data["cpf"]);
@@ -227,9 +222,8 @@ $("#tab_meu_perfil_pes").click(function(){
            $("#cp_campus").attr("value",data["sicapp_campus_idcampus"]);
 
         },
-        error: function(data)
-        {
-            console.log("erro");
+        error: function(data){
+            console.log("Erro no Servidor", data);
         }
     });
 
@@ -246,18 +240,15 @@ $("#tab_meu_perfil_pes").click(function(){
 verificaPermissaoPagina = function(){
     $.ajax({
         type: "POST",
-        url: "class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession",
-        success: function(data)
-        {
+        url: URL + "class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession",
+        success: function(data){
             page = $("body").attr("page");
-             if ( (page=="bol" && data!="0") || (page=="pes" && data!="1"))
-            {
+             if ( (page=="bol" && data!="0") || (page=="pes" && data!="1")){
                redireciona(AMB_HOME);
             }
         },
-        error: function(data)
-        {
-            console.log("Erro ao obter dados: "+data);
+        error: function(data){
+            console.log("Erro ao obter dados");
         }
     });
 
@@ -272,7 +263,7 @@ verificaPermissaoPagina = function(){
 verificaUsuarioLogado = function(){
     $.ajax({
         type: "POST",
-        url: "class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession",
+        url: URL + "class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession",
         success: function(data)
         {
             page = $("body").attr("page");
@@ -301,7 +292,7 @@ verificaUsuarioLogado = function(){
 delogaUsuario = function(){
     $.ajax({
         type: "POST",
-        url: "class/Controller/Dispatcher2.php?classe=Session&acao=deslogaUsuario",
+        url: URL + "class/Controller/Dispatcher2.php?classe=Session&acao=deslogaUsuario",
         success: function(data)
         {
             redireciona(AMB_HOME);
@@ -321,7 +312,7 @@ delogaUsuario = function(){
  * @author Silas Ribeiro
  */
 var getEditais = function(){
-    $("#editais").load("class/Controller/Dispatcher2.php?classe=Edital&acao=listar");
+    $("#editais").load(URL + "class/Controller/Dispatcher2.php?classe=Edital&acao=listar");
 }
 
 /**
@@ -330,5 +321,5 @@ var getEditais = function(){
  * @author Silas Ribeiro
  */
 var getPesquisadores = function(){
-    $("#pesquisadores").load("class/Controller/Dispatcher.php?classe=Pesquisador&acao=listar");
+    $("#pesquisadores").load(URL + "class/Controller/Dispatcher.php?classe=Pesquisador&acao=listar");
 }

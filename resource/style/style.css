@@ -208,3 +208,7 @@ textarea {
     border-top: 0;
     border-color: rgb(221, 221, 221);
 }
+
+#col-perfil .page-header, #col-perfil .page-header h1{
+    margin-top: 0;
+}
