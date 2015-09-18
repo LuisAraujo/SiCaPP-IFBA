@@ -51,11 +51,16 @@
                                 <li>
                                     <a href="#cp" data-toggle="tab">Cadastro Pesquisador</a>
                                 </li>
+
+                                <li>
+                                    <a href="#cb" data-toggle="tab">Cadastro Bolsista</a>
+                                </li>
+
                                 <li>
                                     <a href="#bp" data-toggle="tab">Buscar Pesquisador</a>
                                 </li>
                                 <li>
-                                    <a href="#cb" data-toggle="tab">Cadastro Bolsista</a>
+                                    <a href="#bpr" data-toggle="tab">Buscar Projeto</a>
                                 </li>
                             </ul>
                         </div>
@@ -79,9 +84,9 @@
                         </ul>
                         <div class="tab-content tabs-login col-lg-12 col-md-12 col-sm-12 cols-xs-12">
                             <div id="login-pesq" class="tab-pane fade active in">
-                                <h2><i class="glyphicon glyphicon-log-in"></i> Accesso Pesquisador</h2>
+                                <h2><i class="glyphicon glyphicon-user"></i> Acesso Pesquisador</h2>
                                 <!-- form login usuario (lu) -->
-                                <form id="lu_form_pes" role="form" method="post" action="" class="bs-example bs-example-form">
+                                <form id="lu_form_pes" role="form" method="post" action="" class="bs-example bs-example-form form-sucess">
                                     <!-- usuario -->
                                     <div class="input-group" id="lu_email_pes_div">
                                         <input  name="email" type="email" class="form-control" id="lu_email_pes" placeholder="Seu Email*" required>
@@ -103,7 +108,7 @@
                                 </form>
                             </div>
                             <div id="login-bols" class="tab-pane fade in">
-                                <h2><i class="glyphicon glyphicon-log-in"></i> Accesso Bolsista</h2>
+                                <h2><i class="glyphicon glyphicon-user"></i> Acesso Bolsista</h2>
                                 <!-- form login usuario (lu) -->
                                 <form id="lu_form_bol" role="form" method="post" action="" class="bs-example bs-example-form">
                                     <!-- usuario -->
@@ -138,7 +143,7 @@
                                 <div class="panel-heading">Cadastro Pesquisador | SICAPP</div>
                                 <div class="panel-body">
                                     <!-- form cadastro pesquisador (cp) -->
-                                    <form id="cp_form_pes" role="form" method="post" action="" class="bs-example bs-example-form">
+                                    <form id="cp_form_pes" role="form" method="post" action="" class="bs-example bs-example-form form_sucess">
                                         <!-- nome -->
                                         <div class="input-group" id="cp_nome_div">
                                             <input  name="nome" type="text" class="form-control" id="cp_nome" placeholder="Seu Nome*" required>
@@ -245,7 +250,7 @@
                             <div class="panel-heading">Cadastro Bolsista | SICAPP</div>
                             <div class="panel-body">
                                 <!-- form cadastro bolsista (cb) -->
-                                <form id="cb_form" role="form" method="post" action="" class="bs-example bs-example-form">
+                                <form id="cb_form" role="form" method="post" action="" class="bs-example bs-example-form form_sucess">
                                     <!-- nome -->
                                     <div class="input-group" id="cb_nome_div">
                                         <input  name="nome" type="text" class="form-control" id="cb_nome" placeholder="Seu Nome*" required>
@@ -322,18 +327,380 @@
                 </div>
             </div>
             <!-- FIM EXIBE EDITAIS -->
+
+
             <!-- BUSCA PESQUISADOR-->
             <div id="bp" class="container tab-pane">
-                <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" placeholder="Buscar" aria-describedby="basic-addon1">
-                    <span class="input-group-addon" id="basic-addon1">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    </span>
+                <div class="row-fluid" >
+                    <div class="col-md-7 col-md-offset-2" >
+                        <div class="panel  panel-success">
+                            <div class="panel-heading">Busca Pesquisador</div>
+                            <div class="panel-body">
+                                <!-- form cadastro bolsista (cb) -->
+                                <form  role="form" method="post" action="" class="bs-example bs-example-form form_sucess">
+
+                                    <div class="input-group input-group-lg">
+                                        <input type="text" class="form-control" placeholder="Nome do Pesquisador" aria-describedby="basic-addon1">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                        </span>
+                                    </div>
+
+                                    <div class="input-group input-group-lg">
+                                        <input type="text" class="form-control" placeholder="SIAPE do Pesquisador" aria-describedby="basic-addon1">
+                                        <span class="input-group-addon" >
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        </span>
+                                    </div>
+
+
+                                    <!-- titulação -->
+                                    <div class="btn-group"  style="width: 100%">
+                                        <input  name="titulacao" value=""  style="display: none" />
+                                        <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                            <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                                            <span >Titulacao*</span> <span class="caret"></span>
+                                        </button>
+                                        <ul  class="dropdown-menu"></ul>
+                                    </div>
+                                    <!-- campus -->
+                                    <div class="btn-group"  style="width: 100%">
+                                        <input  name="campus" value=""  style="display: none">
+                                        <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                            <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                                            <span >Campus*</span> <span class="caret"></span>
+                                        </button>
+                                        <ul  class="dropdown-menu">
+                                        </ul>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success">
+                                        <h5> Buscar Pesquisador </h5>
+                                    </button>
+                                </form>
+                             </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="pesquisadores"></div>
+
+
+                <div class="col-md-9 col-md-offset-1" >
+                    <div class="panel  panel-success">
+                        <div class="panel-heading">Lista Pesquisadores</div>
+                        <div class="panel-body">
+
+
+                            <div class="jumbotron">
+                            <ul class="media-list">
+                                <li class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object" style="width: 64px; height: 64px;"src="imgs/user.png" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body media" style="width: 90%">
+                                        <h4 class="media-heading" >Ana Clara B.</h4>
+
+                                        <table class="table table-responsive">
+                                            <thead>
+                                            <tr>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row">Campus</th>
+                                                <td>Valença</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Titulação</th>
+                                                <td>Doutorado</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Projetos de Pesquisa</th>
+                                                <td>4 projetos</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Bolsistas</th>
+                                                <td>5 estudantes</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">Curriculo Lattes</th>
+                                                <td>www.lattes.com.br/anaclara</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <span class="btn label label-success">Visualizar Perfil detalhado</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            </div>
+
+
+
+
+                            <div class="jumbotron">
+                                <ul class="media-list">
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object" style="width: 64px; height: 64px;"src="imgs/user.png" alt="...">
+                                            </a>
+                                        </div>
+                                        <div class="media-body media" style="width: 90%">
+                                            <h4 class="media-heading" >Ana Maria Santos</h4>
+
+                                            <table class="table table-responsive">
+                                                <thead>
+                                                <tr>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <th scope="row">Campus</th>
+                                                    <td>Santo Amaro</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Titulação</th>
+                                                    <td>Mestre</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Projetos de Pesquisa</th>
+                                                    <td>3 projetos</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Bolsistas</th>
+                                                    <td>4 estudantes</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row">Curriculo Lattes</th>
+                                                    <td>www.lattes.com.br/anamaria</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <span class="btn label label-success">Visualizar Perfil detalhado</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                    </div>
+                 <div>
+
             </div>
-            <!-- FIM BUSCA PESQUISADOR -->
         </div>
+    </div>
+
+    </div>
+    <!-- FIM BUSCA PESQUISADOR -->
+
+
+
+                <!-- BUSCA PESQUISADOR-->
+                <div id="bpr" class="container tab-pane">
+                    <div class="row-fluid" >
+                        <div class="col-md-7 col-md-offset-2" >
+                            <div class="panel  panel-success">
+                                <div class="panel-heading">Busca Projetos</div>
+                                <div class="panel-body">
+                                    <!-- form cadastro bolsista (cb) -->
+                                    <form  role="form" method="post" action="" class="bs-example bs-example-form form_sucess">
+
+                                        <div class="input-group input-group-lg">
+                                            <input type="text" class="form-control" placeholder="Nome do Projeto" aria-describedby="basic-addon1">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                        </span>
+                                        </div>
+
+                                        <div class="input-group input-group-lg">
+                                            <input type="text" class="form-control" placeholder="Palavra-chave" aria-describedby="basic-addon1">
+                                        <span class="input-group-addon" >
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        </span>
+                                        </div>
+
+
+                                        <div class="input-group input-group-lg">
+                                            <input type="text" class="form-control" placeholder="Nome do Coordenador" aria-describedby="basic-addon1">
+                                        <span class="input-group-addon" >
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        </span>
+                                        </div>
+
+
+                                        <!-- area -->
+                                        <div class="btn-group"  style="width: 100%">
+                                            <input  name="titulacao" value=""  style="display: none" />
+                                            <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                                <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                                                <span >Área do Conhecimento*</span> <span class="caret"></span>
+                                            </button>
+                                            <ul  class="dropdown-menu"></ul>
+                                        </div>
+                                        <!-- campus -->
+                                        <div class="btn-group"  style="width: 100%">
+                                            <input  name="campus" value=""  style="display: none">
+                                            <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                                <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                                                <span >Campus*</span> <span class="caret"></span>
+                                            </button>
+                                            <ul  class="dropdown-menu">
+                                            </ul>
+                                        </div>
+
+                                        <!-- campus -->
+                                        <div class="btn-group"  style="width: 100%">
+                                            <input  name="campus" value=""  style="display: none">
+                                            <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                                <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                                                <span >Grupo de Pesquisa*</span> <span class="caret"></span>
+                                            </button>
+                                            <ul  class="dropdown-menu">
+                                            </ul>
+                                        </div>
+
+
+
+                                        <!-- campus -->
+                                        <div class="btn-group"  style="width: 100%">
+                                            <input  name="campus" value=""  style="display: none">
+                                            <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                                                <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                                                <span >Agencia Financiadora*</span> <span class="caret"></span>
+                                            </button>
+                                            <ul  class="dropdown-menu">
+                                            </ul>
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-success">
+                                            <h5> Buscar Projetos </h5>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-9 col-md-offset-1" >
+                        <div class="panel  panel-success">
+                            <div class="panel-heading">Lista Pesquisadores</div>
+                            <div class="panel-body">
+
+
+                                <div class="jumbotron">
+                                    <div class="page-header">
+
+                                    <span><h4>Titulo</h4></span>
+                                    <div class="well well-sm ">
+                                       <h4> Formação de elites coloniais das Capitanias </h4>
+                                    </div>
+
+                                    <span><b>Coordenador</b></span>
+                                    <div class="well well-sm ">
+                                        Cristina Alves
+                                    </div>
+
+
+                                    <span><b>Campus</b></span>
+                                    <div class="well well-sm ">
+                                        Santo Amaro
+                                    </div>
+
+
+                                    <span><b>Grupo de Pesquisa</b></span>
+                                    <div class="well well-sm ">
+                                        GAP
+                                    </div>
+
+
+                                    <span><b>Bolsistas</b></span>
+                                    <div class="well well-sm ">
+                                        2 estudantes
+                                    </div>
+
+
+                                    <span><b>Agencia de Fomento</b></span>
+                                    <div class="well well-sm ">
+                                        FAPESB
+                                    </div>
+
+                                    <span class="btn label label-success">Visualizar Projeto detalhado</span>
+                                </div>
+                            </div>
+
+
+                                <div class="jumbotron">
+                                    <div class="page-header">
+                                        <span><h4>Titulo</h4></span>
+                                        <div class="well well-sm ">
+                                            <h4> Formação de Ondas Sonoras como o uso de Harmônicos</h4>
+                                        </div>
+
+                                        <span><b>Coordenador</b></span>
+                                        <div class="well well-sm ">
+                                           Alexandro Silva
+                                        </div>
+
+
+                                        <span><b>Campus</b></span>
+                                        <div class="well well-sm ">
+                                            Vitória da Conquista
+                                        </div>
+
+
+                                        <span><b>Grupo de Pesquisa</b></span>
+                                        <div class="well well-sm ">
+                                            GMAN
+                                        </div>
+
+
+                                        <span><b>Bolsistas</b></span>
+                                        <div class="well well-sm ">
+                                            2 estudantes
+                                        </div>
+
+
+                                        <span><b>Agencia de Fomento</b></span>
+                                        <div class="well well-sm ">
+                                            FAPESB
+                                        </div>
+
+                                        <span class="btn label label-success">Visualizar Projeto detalhado</span>
+                                        <span class="btn label label-success">Visualizar Projeto detalhado</span>
+                                    </div>
+
+
+
+                                </div>
+                    </div>
+
+                </div>
+                <!-- FIM BUSCA PESQUISADOR -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
     </article>
     <footer class="container" >
         <div id="footer_sicapp" class="row">

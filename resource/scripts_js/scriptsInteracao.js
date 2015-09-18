@@ -129,11 +129,4 @@ $(document).ready(function(){
         $("#tab_editarprojeto").trigger("click");
         //chamar ajax com dados
     });
-
-    //data picker inicio
-    /*$("#cadproj_data_div div").datepicker({
-        language: "pt-BR",
-        autoclose: true
-    });*/
-
 });

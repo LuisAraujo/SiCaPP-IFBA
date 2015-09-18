@@ -1,5 +1,6 @@
 
-var URL = "http://sicapp.com/SiCaPP-IFBA/";
+var URL = "/SiCaPP-IFBA/";
+
 
 $(document).ready(function(){
 
@@ -93,8 +94,6 @@ $("#cp_form_pes").validate({
     }
 
 });
-
-
 
 /**
  * @descripition função realiza a atualizado de dados do pesquisador
@@ -238,6 +237,8 @@ $("#tab_meu_perfil_pes").click(function(){
  * @author Luis Araujo
  */
 verificaPermissaoPagina = function(){
+
+
     $.ajax({
         type: "POST",
         url: URL + "class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession",
@@ -261,9 +262,10 @@ verificaPermissaoPagina = function(){
  * @author Luis Araujo
  */
 verificaUsuarioLogado = function(){
+
     $.ajax({
         type: "POST",
-        url: URL + "class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession",
+        url: URL + "class/Controller/Dispatcher2.php?classe=Session&acao=obterTipoSession" ,
         success: function(data)
         {
             page = $("body").attr("page");
@@ -321,5 +323,5 @@ var getEditais = function(){
  * @author Silas Ribeiro
  */
 var getPesquisadores = function(){
-    $("#pesquisadores").load(URL + "class/Controller/Dispatcher.php?classe=Pesquisador&acao=listar");
+    $("#pesquisadores").load(URL + "class/Controller/Dispatcher2.php?classe=Pesquisador&acao=listar");
 }

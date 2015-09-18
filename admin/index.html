@@ -84,34 +84,35 @@
         <!-- form cadastro pesquisador (cp) -->
         <form id="form_busca_projeto_adm" role="form" method="post" action="" class="bs-example bs-example-form form_sucess">
             <!-- nome -->
-            <div class="input-group" id="cp_nome_div">
-                <input  name="nome" type="text" class="form-control" id="cp_nome" placeholder="Nome do Projeto" >
-                                    <span class="input-group-addon">
-                                       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            <div class="input-group" id="fbpra_nome_div">
+                <input  name="nome" type="text" class="form-control" id="fbpra_nome" placeholder="Nome do Projeto" >
+                <span class="input-group-addon">
+                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 
-                                    </span>
+                </span>
             </div>
 
             <!-- Coordenador -->
-            <div class="input-group" id="cp_coordenador_div">
-                <input  name="nome" type="text" class="form-control" id="cp_coordenador" placeholder="Coordenador do Projeto" >
-                                    <span class="input-group-addon">
-                                       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                    </span>
+            <div class="input-group" id="fbpra_coordenador_div">
+                <input  name="nome" type="text" class="form-control" id="fbpra_coordenador" placeholder="Coordenador do Projeto" >
+                <span class="input-group-addon">
+                   <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </span>
             </div>
 
             <!-- Coordenador -->
-            <div class="input-group" id="cp_participante_div">
-                <input  name="nome" type="text" class="form-control" id="cp_participante" placeholder="Participante do Projeto">
-                                    <span class="input-group-addon">
-                                       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                    </span>
+            <div class="input-group" id="fbpra_participante_div">
+                <input  name="nome" type="text" class="form-control" id="fbpra_participante" placeholder="Participante do Projeto">
+                <span class="input-group-addon">
+                   <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </span>
             </div>
 
             <div id="busc_periodo_div">
                 <div class="input-daterange input-group" >
-                    <input type="text" class="input-sm form-control" name="start" placeholder="Entre Inicio"  />
-                    <span class="input-group-addon">à</span>
+                   <span class="input-group-addon">Entre</span>
+                    <input type="text" class="input-sm form-control" name="start" placeholder="Início"  />
+                    <span class="input-group-addon">e</span>
                     <input type="text" class="input-sm form-control" name="end" placeholder="Fim"/>
                 </div>
             </div>
@@ -125,13 +126,10 @@
             </div><!-- /input-group -->
 
 
-
-
-
             <!-- areas -->
             <div class="btn-group" id="cp_areas_div" style="width: 100%">
                 <input id="cp_titulacao" name="area" value=""  style="display: none" />
-                <button id="drop_titulacao_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                <button id="drop_titulacaoa_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
                     <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_titulacao">Área do Conhecimento</span> <span class="caret"></span>
                 </button>
                 <ul id="drop_titulacao" class="dropdown-menu">
@@ -141,45 +139,185 @@
 
 
             <!-- agencia de fomento -->
-            <div class="btn-group" id="cp_agencia_div" style="width: 100%">
-                <input id="cp_agencia" name="campus" value=""  style="display: none">
-                <button id="drop_agencia_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
-                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_agencia">Agência de Fomento</span> <span class="caret"></span>
+            <div class="btn-group" id="cfbpra_agencia_div" style="width: 100%">
+                <input id="cfbpra_agencia" name="campus" value=""  style="display: none">
+                <button id="drop_fbpra_agencia_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_fbpra_agencia">Agência de Fomento</span> <span class="caret"></span>
                 </button>
-                <ul id="drop_agencia" class="dropdown-menu">
+                <ul id="drop_fbpra_agencia" class="dropdown-menu">
                 </ul>
             </div>
 
             <!-- campus -->
-            <div class="btn-group" id="cp_campus_div" style="width: 100%">
-                <input id="cp_campus" name="campus" value=""  style="display: none">
-                <button id="drop_campus_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
-                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_campus">Campus</span> <span class="caret"></span>
+            <div class="btn-group" id="fbpra_campus_div" style="width: 100%">
+                <input id="fbpra_campus" name="campus" value=""  style="display: none">
+                <button id="drop_fbpra_campus_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_fbpra_campus">Campus</span> <span class="caret"></span>
                 </button>
-                <ul id="drop_campus" class="dropdown-menu">
+                <ul id="drop_fbpra_campus" class="dropdown-menu">
+                </ul>
+            </div>
+
+            <button type="button" class="btn btn-success">
+                <h5> Buscar Projeto</h5>
+            </button>
+        </form>
+    </div>
+
+
+    <div id="ct-listaprojetos" class="container tab-pane  col-md-9 col-md-offset-1">
+        <!-- conteiner projetos -->
+        <div id="pn-proj" class="panel panel-default">
+            <table  id="tb-proj" class="table table-striped table-bordered table-responsive" style="border-left:  5px solid #025310; background-color: #fff" >
+                <thead class="panel-title" style="">
+                <tr>
+                    <th>ID</th>
+                    <th>PROJETO</th>
+                    <th>SITUAÇÃO</th>
+                    <th>AÇÕES</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="border-radius:10px">
+                    <td>1045</td>
+                    <td>Aprendendo e desenvolvendo... </td>
+                    <td class="status-ok"></td>
+                    <td>
+                        <span class="bt_visualizarprojeto  btn label label-success">Visualizar</span>
+                        <span class="bt_editarprojeto btn label label-warning">Editar</span>
+                        <span class="btn label label-danger">Excluir</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1045</td>
+                    <td>Aprendendo e desenvolvendo...</td>
+                    <td class="status-ok"></td>
+                    <td>
+                        <span class="bt_visualizarprojeto  btn label label-success">Visualizar</span>
+                        <span class="bt_editarprojeto btn label label-warning">Editar</span>
+                        <span class="btn label label-danger">Excluir</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1045</td>
+                    <td>Aprendendo e desenvolvendo...</td>
+                    <td class="status-pendente"></td>
+                    <td>
+                        <span class="bt_visualizarprojeto  btn label label-success">Visualizar</span>
+                        <span class="bt_editarprojeto btn label label-warning">Editar</span>
+                        <span class="btn label label-danger">Excluir</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1045</td>
+                    <td>Aprendendo e desenvolvendo...</td>
+                    <td class="status-concluido"></td>
+                    <td>
+                        <span class="bt_visualizarprojeto btn label label-success">Visualizar</span>
+                        <span class="bt_editarprojeto btn label label-warning">Editar</span>
+                        <span class="btn label label-danger">Excluir</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- pn-proj-->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div id="ct-pesquisadores"  class="container tab-pane col-md-4 col-lg-offset-4">
+                <!-- form cadastro pesquisador (cp) -->
+        <form id="form_busca_pesquisador_adm" role="form" method="post" action="" class="bs-example bs-example-form form_sucess">
+            <!-- nome -->
+            <div class="input-group" id="fbpa_nome_div">
+                <input  name="nome" type="text" class="form-control" id="cbpa_nome" placeholder="Nome do Pesquisador" >
+                <span class="input-group-addon">
+                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </span>
+            </div>
+
+
+            <!-- Siape -->
+            <div class="input-group" id="fbpa_siap_div">
+                <input  name="nome" type="text" class="form-control" id="cbpa_siape" placeholder="SIAPE do Pesquisador" >
+                <span class="input-group-addon">
+                   <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                </span>
+            </div>
+
+
+            <!-- campus -->
+            <div class="btn-group" id="fbpa_campus_div" style="width: 100%">
+                <input id="fbpa_campus" name="campus" value=""  style="display: none">
+                <button id="drop_fbpa_campus_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_fbpa_campus">Campus</span> <span class="caret"></span>
+                </button>
+                <ul id="drop_fbpa_campus" class="dropdown-menu">
                 </ul>
             </div>
 
 
 
 
-            <button type="submit" class="btn btn-success">
-                <h5> Pesquisar Projetos</h5>
+            <!-- campus -->
+            <div class="btn-group" id="fbpa_titulacao_div" style="width: 100%">
+                <input id="fbpa_titulacao" name="campus" value=""  style="display: none">
+                <button id="drop_fbpa_titulacao_bt" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
+                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <span id="placeholder_fbpa_titulacao">Titulação</span> <span class="caret"></span>
+                </button>
+                <ul id="drop_fbpa_titulacao" class="dropdown-menu">
+                </ul>
+            </div>
+
+            <button type="button" class="btn btn-success">
+                <h5> Buscar Pesquisador</h5>
+            </button>
+        </form>
+
+    </div>
+
+
+    <div id="ct-grupospesquisa" class="container tab-pane col-md-4 col-lg-offset-4">
+        <!-- form cadastro pesquisador (cp) -->
+        <form id="form_busca_grupopesquis_adm" role="form" method="post" action="" class="bs-example bs-example-form form_sucess">
+            <!-- nome -->
+            <div class="input-group" id="fbgpa_nome_div">
+                <input  name="nome" type="text" class="form-control" id="fbgpa_nome" placeholder="Nome do Grupo de Pesquisa" >
+                <span class="input-group-addon">
+                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </span>
+            </div>
+
+            <!-- Siape -->
+            <div class="input-group" id="fbgpa_coordenador_div">
+                <input  name="nome" type="text" class="form-control" id="fbgpa_coordenador" placeholder="Coordenador do Grupo de Pesquisa" >
+                <span class="input-group-addon">
+                   <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </span>
+            </div>
+
+
+            <button type="button" class="btn btn-success">
+                <h5> Buscar Grupo de Pesquisa</h5>
             </button>
         </form>
     </div>
 
-    <div id="ct-pesquisadores" class="container tab-pane">
-        PESQUISADORES
-    </div>
+    <div id="ct-cadastrar" class="container tab-pane col-md-4 col-lg-offset-4">
 
 
-    <div id="ct-grupospesquisa" class="container tab-pane">
-        GRUPOS DE PESQUISA
-    </div>
 
-    <div id="ct-cadastrar" class="container tab-pane">
-        CADASTRAR
+
+
+
     </div>
 
 
